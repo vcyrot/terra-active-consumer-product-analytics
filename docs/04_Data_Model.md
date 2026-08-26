@@ -646,12 +646,7 @@ represents one inventory observation.
 Closing inventory should approximately satisfy:
 
 ```text
-Closing Stock
-=
-Opening Stock
-+ Units Received
-+ Units Returned to Stock
-− Units Sold
+Closing Stock = Opening Stock + Units Received + Units Returned to Stock − Units Sold
 ```
 
 This becomes a useful **data-quality validation rule** later.

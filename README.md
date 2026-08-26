@@ -24,7 +24,7 @@ Detailed documentation is available in the `docs/` directory.
 - [x] Project definition
 - [x] Business questions
 - [x] KPI framework
-- [ ] Data model
+- [x] Data model
 - [ ] Synthetic data generation
 - [ ] Data preprocessing
 - [ ] SQL analytics
