@@ -1,201 +1,201 @@
-product_id,product_name,category,subcategory,sport_positioning,gender_positioning,colour_family,collection,launch_date,list_price,unit_cost,technical_level,waterproof,insulated,sustainable_material_pct,active_flag
-PROD0001,Terra Socks 001,Accessory,Socks,Gym,Women,Brown,Autumn,2023-04-05,21.58,7.1,Performance,False,False,56.0,True
-PROD0002,Terra Leggings 002,Apparel,Leggings,Gym,Men,Beige,Core,2025-12-05,135.61,47.0,Performance,False,False,86.2,True
-PROD0003,Terra Waterproof Shell 003,Apparel,Waterproof Shell,Outdoor,Unisex,Red,Core,2023-03-16,394.36,159.0,Technical,True,True,32.3,True
-PROD0004,Terra Cap 004,Accessory,Cap,Lifestyle,Women,Navy,Spring,2025-05-03,43.62,15.05,Lifestyle,False,False,58.1,True
-PROD0005,Terra Shorts 005,Apparel,Shorts,Trail,Unisex,Black,Autumn,2023-06-26,93.49,29.5,Performance,False,False,43.1,True
-PROD0006,Terra Cap 006,Accessory,Cap,Multi-Sport,Unisex,Black,Autumn,2023-12-09,28.49,6.55,Lifestyle,False,False,56.7,True
-PROD0007,Terra Running Jacket 007,Apparel,Running Jacket,Trail,Men,Beige,Autumn,2024-04-26,170.97,54.23,Technical,True,False,64.7,True
-PROD0008,Terra Leggings 008,Apparel,Leggings,Running,Men,Grey,Winter,2024-09-11,81.85,25.82,Performance,False,False,42.5,True
-PROD0009,Terra Shorts 009,Apparel,Shorts,Trail,Men,Green,Autumn,2024-07-07,93.1,31.05,Performance,False,False,27.2,True
-PROD0010,Terra Cap 010,Accessory,Cap,Multi-Sport,Women,Brown,Autumn,2024-03-21,36.55,8.19,Lifestyle,False,False,44.1,True
-PROD0011,Terra Waterproof Shell 011,Apparel,Waterproof Shell,Hiking,Unisex,Navy,Autumn,2024-01-11,303.22,110.11,Technical,True,False,82.3,True
-PROD0012,Terra Cap 012,Accessory,Cap,Running,Unisex,Black,Spring,2025-09-22,36.23,8.73,Lifestyle,False,False,66.3,True
-PROD0013,Terra Sports Bra 013,Apparel,Sports Bra,Running,Men,Navy,Summer,2024-06-24,84.26,30.65,Performance,False,False,53.3,True
-PROD0014,Terra T-Shirt 014,Apparel,T-Shirt,Lifestyle,Women,White,Summer,2024-11-18,59.76,17.9,Lifestyle,False,False,66.5,True
-PROD0015,Terra Leggings 015,Apparel,Leggings,Running,Men,Green,Core,2023-06-16,115.45,29.26,Performance,False,False,95.0,True
-PROD0016,Terra Running Jacket 016,Apparel,Running Jacket,Trail,Men,Navy,Spring,2025-05-07,221.02,75.16,Technical,True,False,91.7,True
-PROD0017,Terra Sports Bra 017,Apparel,Sports Bra,Running,Women,Grey,Autumn,2024-12-30,72.16,19.22,Performance,False,False,93.3,True
-PROD0018,Terra Shorts 018,Apparel,Shorts,Gym,Unisex,Navy,Autumn,2024-12-23,61.87,20.62,Performance,False,False,43.3,True
-PROD0019,Terra Running Jacket 019,Apparel,Running Jacket,Running,Women,Grey,Winter,2023-07-18,188.39,82.97,Technical,False,False,91.3,True
-PROD0020,Terra Running Vest 020,Accessory,Running Vest,Running,Men,Blue,Spring,2024-04-21,136.7,47.49,Technical,True,False,41.0,True
-PROD0021,Terra Backpack 021,Accessory,Backpack,Lifestyle,Women,Blue,Summer,2023-03-16,136.15,43.35,Technical,False,False,44.8,True
-PROD0022,Terra Socks 022,Accessory,Socks,Hiking,Women,White,Core,2023-07-16,29.58,8.14,Performance,False,False,29.7,True
-PROD0023,Terra Running Jacket 023,Apparel,Running Jacket,Running,Unisex,Black,Autumn,2024-04-02,254.14,98.39,Technical,True,True,94.2,True
-PROD0024,Terra Leggings 024,Apparel,Leggings,Gym,Unisex,Red,Core,2025-02-23,98.06,31.7,Performance,False,True,64.4,True
-PROD0025,Terra Waterproof Shell 025,Apparel,Waterproof Shell,Trail,Unisex,White,Winter,2025-03-31,244.36,90.67,Technical,True,False,82.8,True
-PROD0026,Terra T-Shirt 026,Apparel,T-Shirt,Gym,Women,Blue,Summer,2024-10-15,44.37,16.61,Lifestyle,False,False,68.2,True
-PROD0027,Terra Fleece 027,Apparel,Fleece,Trail,Unisex,Grey,Core,2023-05-05,157.42,57.28,Technical,False,True,85.3,True
-PROD0028,Terra T-Shirt 028,Apparel,T-Shirt,Gym,Unisex,White,Core,2024-05-12,42.66,14.47,Lifestyle,False,False,33.2,True
-PROD0029,Terra Shorts 029,Apparel,Shorts,Running,Women,White,Core,2024-08-15,67.68,18.09,Performance,False,False,51.5,True
-PROD0030,Terra Leggings 030,Apparel,Leggings,Running,Women,Beige,Core,2023-07-11,110.27,42.04,Performance,False,False,65.7,True
-PROD0031,Terra Fleece 031,Apparel,Fleece,Trail,Women,Black,Core,2025-10-11,124.93,44.48,Technical,False,True,87.5,True
-PROD0032,Terra Running Vest 032,Accessory,Running Vest,Trail,Men,Blue,Autumn,2025-07-02,178.16,74.88,Technical,True,False,61.1,True
-PROD0033,Terra Running Vest 033,Accessory,Running Vest,Trail,Women,Black,Spring,2025-01-22,131.65,47.1,Technical,False,False,49.4,True
-PROD0034,Terra Leggings 034,Apparel,Leggings,Pilates,Women,Red,Winter,2023-06-03,99.65,30.58,Performance,False,False,46.3,True
-PROD0035,Terra Running Jacket 035,Apparel,Running Jacket,Trail,Men,Blue,Core,2023-08-10,277.28,110.33,Technical,False,True,75.6,True
-PROD0036,Terra Running Vest 036,Accessory,Running Vest,Trail,Unisex,Black,Core,2024-11-24,101.89,39.96,Technical,False,False,96.7,True
-PROD0037,Terra Socks 037,Accessory,Socks,Gym,Unisex,Black,Summer,2025-12-28,23.91,7.59,Performance,False,False,33.7,True
-PROD0038,Terra Running Jacket 038,Apparel,Running Jacket,Trail,Unisex,Brown,Autumn,2023-10-05,235.86,87.24,Technical,True,False,94.5,True
-PROD0039,Terra T-Shirt 039,Apparel,T-Shirt,Lifestyle,Men,Orange,Autumn,2024-06-19,44.68,11.76,Lifestyle,False,False,81.0,True
-PROD0040,Terra Shorts 040,Apparel,Shorts,Running,Women,White,Winter,2025-04-28,78.21,23.24,Performance,False,False,78.4,True
-PROD0041,Terra Running Jacket 041,Apparel,Running Jacket,Running,Women,Red,Autumn,2024-11-02,290.42,121.12,Technical,False,True,88.0,True
-PROD0042,Terra Waterproof Shell 042,Apparel,Waterproof Shell,Hiking,Women,Red,Spring,2025-12-17,248.04,108.7,Technical,True,False,56.7,True
-PROD0043,Terra Fleece 043,Apparel,Fleece,Lifestyle,Women,Navy,Winter,2025-03-20,150.19,65.75,Technical,False,False,28.5,True
-PROD0044,Terra Backpack 044,Accessory,Backpack,Outdoor,Unisex,Black,Core,2025-12-28,199.85,79.44,Technical,True,False,82.1,True
-PROD0045,Terra Sports Bra 045,Apparel,Sports Bra,Gym,Women,White,Summer,2025-09-23,86.43,30.12,Performance,False,False,88.0,True
-PROD0046,Terra T-Shirt 046,Apparel,T-Shirt,Running,Men,Blue,Autumn,2023-02-26,72.04,28.04,Lifestyle,False,False,30.0,True
-PROD0047,Terra Running Jacket 047,Apparel,Running Jacket,Trail,Women,Beige,Core,2023-04-05,261.78,103.27,Technical,True,False,98.4,True
-PROD0048,Terra Waterproof Shell 048,Apparel,Waterproof Shell,Hiking,Unisex,Black,Autumn,2025-03-16,232.54,102.89,Technical,True,True,34.7,True
-PROD0049,Terra Backpack 049,Accessory,Backpack,Outdoor,Men,Green,Winter,2023-10-06,168.78,70.48,Technical,True,False,76.0,True
-PROD0050,Terra Waterproof Shell 050,Apparel,Waterproof Shell,Trail,Men,Brown,Spring,2023-06-09,436.34,162.43,Technical,True,True,42.2,True
-PROD0051,Terra Leggings 051,Apparel,Leggings,Gym,Men,White,Core,2024-03-15,105.67,36.1,Performance,False,False,22.9,True
-PROD0052,Terra Fleece 052,Apparel,Fleece,Hiking,Men,Brown,Autumn,2024-03-24,167.41,55.89,Technical,False,True,45.3,True
-PROD0053,Terra Socks 053,Accessory,Socks,Hiking,Women,Orange,Autumn,2024-08-03,23.24,6.15,Performance,False,False,60.3,True
-PROD0054,Terra Running Jacket 054,Apparel,Running Jacket,Trail,Men,Beige,Core,2024-07-15,269.98,93.73,Technical,True,False,24.4,True
-PROD0055,Terra Shorts 055,Apparel,Shorts,Running,Unisex,Orange,Autumn,2025-03-11,76.71,21.17,Performance,False,False,32.3,True
-PROD0056,Terra Waterproof Shell 056,Apparel,Waterproof Shell,Trail,Unisex,Orange,Autumn,2023-01-17,247.52,100.18,Technical,True,False,76.4,True
-PROD0057,Terra Leggings 057,Apparel,Leggings,Pilates,Men,Green,Core,2025-01-09,118.45,29.8,Performance,False,False,64.5,True
-PROD0058,Terra Socks 058,Accessory,Socks,Hiking,Women,Green,Core,2023-06-29,29.85,6.6,Performance,False,False,57.5,True
-PROD0059,Terra Sports Bra 059,Apparel,Sports Bra,Gym,Women,White,Spring,2025-10-28,57.24,22.1,Performance,False,False,26.7,True
-PROD0060,Terra Shorts 060,Apparel,Shorts,Gym,Men,Red,Autumn,2023-11-17,102.18,35.32,Performance,False,False,63.2,True
-PROD0061,Terra Leggings 061,Apparel,Leggings,Running,Unisex,Navy,Winter,2024-08-05,130.67,42.13,Performance,False,False,47.2,True
-PROD0062,Terra Running Jacket 062,Apparel,Running Jacket,Running,Unisex,Navy,Summer,2024-07-07,229.71,72.53,Technical,True,False,35.3,True
-PROD0063,Terra T-Shirt 063,Apparel,T-Shirt,Gym,Men,Brown,Core,2024-04-05,77.1,24.46,Lifestyle,False,False,98.5,True
-PROD0064,Terra Waterproof Shell 064,Apparel,Waterproof Shell,Trail,Unisex,Orange,Winter,2023-01-09,329.83,153.11,Technical,True,False,29.1,True
-PROD0065,Terra Cap 065,Accessory,Cap,Lifestyle,Unisex,White,Core,2025-11-19,36.0,10.19,Lifestyle,False,False,47.7,True
-PROD0066,Terra Sports Bra 066,Apparel,Sports Bra,Running,Unisex,Green,Spring,2025-12-15,51.64,18.93,Performance,False,False,83.5,True
-PROD0067,Terra T-Shirt 067,Apparel,T-Shirt,Multi-Sport,Unisex,Grey,Spring,2023-10-19,62.22,23.04,Lifestyle,False,False,74.0,True
-PROD0068,Terra Cap 068,Accessory,Cap,Multi-Sport,Unisex,Blue,Core,2023-02-10,44.34,14.62,Lifestyle,False,False,88.7,True
-PROD0069,Terra T-Shirt 069,Apparel,T-Shirt,Running,Men,Red,Autumn,2024-08-04,60.59,21.3,Lifestyle,False,False,47.8,True
-PROD0070,Terra Running Vest 070,Accessory,Running Vest,Running,Women,Navy,Winter,2025-09-08,116.9,45.42,Technical,True,False,47.4,True
-PROD0071,Terra Cap 071,Accessory,Cap,Running,Men,Brown,Summer,2024-11-30,45.19,15.81,Lifestyle,False,False,67.6,True
-PROD0072,Terra Leggings 072,Apparel,Leggings,Gym,Women,White,Core,2023-05-30,134.92,43.79,Performance,False,True,56.3,True
-PROD0073,Terra Waterproof Shell 073,Apparel,Waterproof Shell,Outdoor,Unisex,Brown,Core,2025-08-30,298.96,123.49,Technical,True,False,46.0,True
-PROD0074,Terra Running Vest 074,Accessory,Running Vest,Running,Men,Brown,Core,2024-08-15,137.66,56.63,Technical,True,False,32.4,True
-PROD0075,Terra Running Vest 075,Accessory,Running Vest,Trail,Unisex,Red,Spring,2023-10-02,115.49,44.37,Technical,False,False,85.2,True
-PROD0076,Terra Running Vest 076,Accessory,Running Vest,Running,Women,Brown,Autumn,2024-04-25,160.88,52.73,Technical,False,False,54.6,True
-PROD0077,Terra T-Shirt 077,Apparel,T-Shirt,Running,Women,Brown,Spring,2023-11-18,78.39,20.81,Lifestyle,False,False,24.1,True
-PROD0078,Terra T-Shirt 078,Apparel,T-Shirt,Multi-Sport,Women,Red,Core,2023-03-13,55.38,14.35,Lifestyle,False,False,20.1,True
-PROD0079,Terra T-Shirt 079,Apparel,T-Shirt,Lifestyle,Men,Black,Spring,2023-05-02,74.51,18.64,Lifestyle,False,False,40.8,True
-PROD0080,Terra Leggings 080,Apparel,Leggings,Running,Women,Red,Core,2024-01-01,94.55,30.44,Performance,False,True,56.9,True
-PROD0081,Terra Cap 081,Accessory,Cap,Running,Unisex,Black,Core,2023-12-16,28.76,5.96,Lifestyle,True,False,69.6,True
-PROD0082,Terra Shorts 082,Apparel,Shorts,Trail,Women,Beige,Winter,2023-01-11,88.46,29.95,Performance,False,False,81.8,True
-PROD0083,Terra Running Vest 083,Accessory,Running Vest,Running,Men,Orange,Spring,2024-09-02,112.88,49.42,Technical,False,False,83.9,True
-PROD0084,Terra Waterproof Shell 084,Apparel,Waterproof Shell,Trail,Women,Navy,Core,2025-12-15,269.76,111.17,Technical,True,True,33.2,True
-PROD0085,Terra Cap 085,Accessory,Cap,Running,Unisex,White,Core,2025-06-24,42.7,13.27,Lifestyle,False,False,33.8,True
-PROD0086,Terra Running Jacket 086,Apparel,Running Jacket,Trail,Unisex,Black,Summer,2024-10-12,298.77,89.81,Technical,True,False,90.4,True
-PROD0087,Terra Running Jacket 087,Apparel,Running Jacket,Running,Men,White,Autumn,2025-03-01,243.27,82.95,Technical,False,True,67.7,True
-PROD0088,Terra Shorts 088,Apparel,Shorts,Gym,Men,Red,Spring,2023-11-20,103.69,29.87,Performance,False,False,65.4,True
-PROD0089,Terra Socks 089,Accessory,Socks,Hiking,Women,Black,Summer,2025-10-09,29.75,7.82,Performance,False,True,91.2,True
-PROD0090,Terra Leggings 090,Apparel,Leggings,Gym,Women,Orange,Core,2025-05-22,120.95,32.95,Performance,False,False,37.0,True
-PROD0091,Terra Fleece 091,Apparel,Fleece,Trail,Men,Black,Autumn,2024-12-08,193.35,83.48,Technical,False,True,28.4,True
-PROD0092,Terra Running Vest 092,Accessory,Running Vest,Trail,Women,Black,Autumn,2025-03-23,167.9,70.47,Technical,True,False,50.2,True
-PROD0093,Terra Cap 093,Accessory,Cap,Running,Men,Brown,Spring,2024-11-17,47.19,12.23,Lifestyle,False,False,57.4,True
-PROD0094,Terra Sports Bra 094,Apparel,Sports Bra,Running,Women,White,Autumn,2024-09-28,65.09,20.12,Performance,False,False,39.5,True
-PROD0095,Terra T-Shirt 095,Apparel,T-Shirt,Gym,Women,Orange,Summer,2024-01-12,70.14,26.8,Lifestyle,False,False,23.6,True
-PROD0096,Terra Running Jacket 096,Apparel,Running Jacket,Trail,Women,Green,Core,2023-07-23,293.9,116.94,Technical,True,False,90.1,True
-PROD0097,Terra Running Vest 097,Accessory,Running Vest,Trail,Women,Green,Core,2024-01-24,178.61,79.9,Technical,False,False,87.7,True
-PROD0098,Terra Waterproof Shell 098,Apparel,Waterproof Shell,Hiking,Women,Grey,Winter,2023-06-01,344.74,129.21,Technical,True,False,43.7,True
-PROD0099,Terra Leggings 099,Apparel,Leggings,Running,Women,Red,Core,2023-02-03,104.29,37.96,Performance,False,False,41.2,True
-PROD0100,Terra Socks 100,Accessory,Socks,Running,Women,Green,Autumn,2025-10-28,17.69,4.64,Performance,False,False,47.1,True
-PROD0101,Terra Running Jacket 101,Apparel,Running Jacket,Running,Unisex,Black,Autumn,2023-11-21,187.26,63.05,Technical,True,False,62.4,True
-PROD0102,Terra Running Jacket 102,Apparel,Running Jacket,Running,Unisex,White,Spring,2025-08-31,215.18,68.81,Technical,False,True,64.4,True
-PROD0103,Terra Shorts 103,Apparel,Shorts,Running,Unisex,Black,Summer,2024-02-21,72.66,18.49,Performance,False,False,62.6,True
-PROD0104,Terra Sports Bra 104,Apparel,Sports Bra,Running,Men,Blue,Core,2023-12-19,89.54,33.38,Performance,False,False,24.0,True
-PROD0105,Terra Leggings 105,Apparel,Leggings,Running,Unisex,Beige,Winter,2023-03-01,127.67,43.84,Performance,False,False,20.2,True
-PROD0106,Terra Backpack 106,Accessory,Backpack,Outdoor,Women,Green,Core,2023-08-21,142.13,43.96,Technical,False,False,93.7,True
-PROD0107,Terra Leggings 107,Apparel,Leggings,Gym,Men,Black,Winter,2023-11-28,123.57,39.44,Performance,False,False,74.2,True
-PROD0108,Terra Socks 108,Accessory,Socks,Running,Unisex,Beige,Winter,2024-06-02,15.6,4.17,Performance,False,False,44.2,True
-PROD0109,Terra Backpack 109,Accessory,Backpack,Outdoor,Men,White,Summer,2024-03-08,154.95,63.65,Technical,False,False,71.8,True
-PROD0110,Terra Leggings 110,Apparel,Leggings,Pilates,Women,White,Autumn,2025-02-27,104.49,33.02,Performance,False,False,21.6,True
-PROD0111,Terra Leggings 111,Apparel,Leggings,Running,Women,Orange,Core,2025-10-26,91.87,33.69,Performance,False,False,42.7,True
-PROD0112,Terra Cap 112,Accessory,Cap,Multi-Sport,Unisex,Brown,Winter,2025-01-01,47.76,11.0,Lifestyle,False,False,70.0,True
-PROD0113,Terra Leggings 113,Apparel,Leggings,Running,Women,Brown,Winter,2024-04-27,138.57,42.95,Performance,False,False,94.9,True
-PROD0114,Terra Running Vest 114,Accessory,Running Vest,Trail,Men,Green,Core,2024-03-14,119.0,45.42,Technical,True,False,93.9,True
-PROD0115,Terra Socks 115,Accessory,Socks,Gym,Unisex,White,Spring,2025-12-28,29.67,9.25,Performance,False,False,43.1,True
-PROD0116,Terra Shorts 116,Apparel,Shorts,Running,Unisex,Grey,Winter,2024-06-10,89.3,27.82,Performance,False,False,46.9,True
-PROD0117,Terra Socks 117,Accessory,Socks,Gym,Women,White,Winter,2025-02-06,27.59,6.09,Performance,False,False,53.8,True
-PROD0118,Terra Waterproof Shell 118,Apparel,Waterproof Shell,Trail,Women,Black,Autumn,2024-03-03,434.57,216.03,Technical,True,False,73.1,True
-PROD0119,Terra T-Shirt 119,Apparel,T-Shirt,Gym,Men,Grey,Autumn,2023-06-20,73.3,20.26,Lifestyle,False,False,100.0,True
-PROD0120,Terra Running Jacket 120,Apparel,Running Jacket,Running,Women,Orange,Spring,2024-07-02,164.28,67.22,Technical,True,True,73.8,True
-PROD0121,Terra Leggings 121,Apparel,Leggings,Running,Men,Navy,Autumn,2025-09-20,127.25,47.7,Performance,False,False,91.4,True
-PROD0122,Terra Sports Bra 122,Apparel,Sports Bra,Gym,Men,White,Core,2023-12-19,85.16,22.52,Performance,False,False,54.9,True
-PROD0123,Terra Socks 123,Accessory,Socks,Gym,Women,Black,Winter,2025-03-29,15.52,4.62,Performance,False,False,85.5,True
-PROD0124,Terra T-Shirt 124,Apparel,T-Shirt,Lifestyle,Unisex,Grey,Summer,2023-06-10,55.78,20.12,Lifestyle,False,False,49.4,True
-PROD0125,Terra Shorts 125,Apparel,Shorts,Running,Women,Navy,Core,2025-11-20,70.42,25.54,Performance,False,False,99.2,True
-PROD0126,Terra Sports Bra 126,Apparel,Sports Bra,Running,Unisex,Navy,Winter,2023-07-13,76.14,24.16,Performance,False,False,37.7,True
-PROD0127,Terra Cap 127,Accessory,Cap,Lifestyle,Men,Navy,Autumn,2023-01-08,32.23,10.0,Lifestyle,True,False,68.1,True
-PROD0128,Terra Running Jacket 128,Apparel,Running Jacket,Running,Unisex,Blue,Summer,2025-06-27,189.03,68.58,Technical,True,False,61.8,True
-PROD0129,Terra Leggings 129,Apparel,Leggings,Pilates,Women,Black,Winter,2025-07-14,113.85,40.02,Performance,False,False,91.2,True
-PROD0130,Terra Fleece 130,Apparel,Fleece,Trail,Women,Black,Summer,2023-08-21,167.61,73.8,Technical,False,True,37.1,True
-PROD0131,Terra T-Shirt 131,Apparel,T-Shirt,Running,Women,Red,Core,2024-07-25,48.28,15.13,Lifestyle,False,False,48.6,True
-PROD0132,Terra Shorts 132,Apparel,Shorts,Trail,Unisex,Beige,Core,2025-07-31,90.52,25.42,Performance,False,False,69.6,True
-PROD0133,Terra Sports Bra 133,Apparel,Sports Bra,Running,Men,White,Core,2023-04-24,84.1,30.54,Performance,False,False,95.9,True
-PROD0134,Terra Running Jacket 134,Apparel,Running Jacket,Trail,Men,Orange,Spring,2025-12-28,270.93,88.2,Technical,False,False,51.8,True
-PROD0135,Terra Waterproof Shell 135,Apparel,Waterproof Shell,Hiking,Women,Blue,Summer,2023-08-26,249.45,99.32,Technical,True,False,54.5,True
-PROD0136,Terra Waterproof Shell 136,Apparel,Waterproof Shell,Outdoor,Women,Navy,Spring,2025-08-07,433.16,212.21,Technical,True,False,72.7,True
-PROD0137,Terra Running Jacket 137,Apparel,Running Jacket,Running,Women,Navy,Autumn,2023-03-19,198.11,69.71,Technical,True,True,65.0,True
-PROD0138,Terra Socks 138,Accessory,Socks,Gym,Men,Orange,Autumn,2023-07-02,18.86,6.11,Performance,False,False,51.4,True
-PROD0139,Terra Backpack 139,Accessory,Backpack,Hiking,Men,Orange,Core,2024-11-06,186.85,56.18,Technical,False,False,59.7,True
-PROD0140,Terra Fleece 140,Apparel,Fleece,Lifestyle,Unisex,Navy,Spring,2024-09-08,120.55,50.39,Technical,False,True,32.8,True
-PROD0141,Terra Socks 141,Accessory,Socks,Gym,Unisex,Blue,Core,2023-09-21,22.45,6.3,Performance,False,False,50.0,True
-PROD0142,Terra T-Shirt 142,Apparel,T-Shirt,Running,Unisex,Brown,Summer,2025-07-26,72.44,23.34,Lifestyle,False,False,53.4,True
-PROD0143,Terra T-Shirt 143,Apparel,T-Shirt,Gym,Women,Blue,Core,2023-03-17,71.79,26.97,Lifestyle,False,False,75.2,True
-PROD0144,Terra Sports Bra 144,Apparel,Sports Bra,Running,Women,Red,Spring,2025-08-16,76.73,23.52,Performance,False,False,31.2,True
-PROD0145,Terra Sports Bra 145,Apparel,Sports Bra,Running,Men,Grey,Winter,2024-07-15,63.77,16.87,Performance,False,False,89.7,True
-PROD0146,Terra Waterproof Shell 146,Apparel,Waterproof Shell,Trail,Men,Black,Winter,2025-06-05,318.68,132.14,Technical,False,True,76.5,True
-PROD0147,Terra Leggings 147,Apparel,Leggings,Running,Unisex,Orange,Core,2023-12-07,134.18,34.45,Performance,False,False,62.8,True
-PROD0148,Terra Running Vest 148,Accessory,Running Vest,Trail,Women,Green,Winter,2023-05-09,141.07,50.73,Technical,False,False,42.9,True
-PROD0149,Terra Backpack 149,Accessory,Backpack,Lifestyle,Unisex,White,Autumn,2023-05-20,114.14,49.09,Technical,False,False,83.7,True
-PROD0150,Terra Running Jacket 150,Apparel,Running Jacket,Running,Unisex,Orange,Spring,2025-12-05,231.52,100.67,Technical,True,False,48.9,True
-PROD0151,Terra Leggings 151,Apparel,Leggings,Running,Men,White,Summer,2024-09-14,85.39,22.34,Performance,False,False,36.5,True
-PROD0152,Terra Backpack 152,Accessory,Backpack,Outdoor,Unisex,Orange,Core,2025-10-17,132.81,50.12,Technical,True,False,25.1,True
-PROD0153,Terra Sports Bra 153,Apparel,Sports Bra,Pilates,Men,Blue,Autumn,2023-10-13,72.74,28.14,Performance,False,False,95.9,True
-PROD0154,Terra Leggings 154,Apparel,Leggings,Gym,Unisex,Green,Spring,2023-08-10,85.43,24.25,Performance,False,False,34.6,True
-PROD0155,Terra Leggings 155,Apparel,Leggings,Gym,Women,Blue,Core,2023-06-27,119.19,41.83,Performance,False,False,28.6,True
-PROD0156,Terra Running Jacket 156,Apparel,Running Jacket,Trail,Unisex,Green,Spring,2025-03-02,227.93,85.75,Technical,True,False,25.3,True
-PROD0157,Terra Waterproof Shell 157,Apparel,Waterproof Shell,Hiking,Unisex,Black,Winter,2024-10-31,272.43,121.41,Technical,True,True,85.8,True
-PROD0158,Terra Waterproof Shell 158,Apparel,Waterproof Shell,Trail,Unisex,Red,Summer,2024-05-29,399.8,165.61,Technical,True,False,73.7,True
-PROD0159,Terra Backpack 159,Accessory,Backpack,Lifestyle,Men,Black,Spring,2024-11-20,155.64,56.62,Technical,True,False,30.5,True
-PROD0160,Terra Sports Bra 160,Apparel,Sports Bra,Gym,Women,Beige,Core,2025-03-18,75.07,27.18,Performance,False,False,35.8,True
-PROD0161,Terra Shorts 161,Apparel,Shorts,Trail,Unisex,Beige,Spring,2025-03-08,86.47,33.07,Performance,False,False,41.9,True
-PROD0162,Terra Leggings 162,Apparel,Leggings,Running,Women,Blue,Spring,2023-07-11,87.64,29.14,Performance,False,False,85.2,True
-PROD0163,Terra Fleece 163,Apparel,Fleece,Trail,Women,Grey,Spring,2024-01-08,202.06,67.91,Technical,False,True,45.1,True
-PROD0164,Terra Shorts 164,Apparel,Shorts,Trail,Women,Navy,Core,2024-05-27,66.54,21.01,Performance,False,False,59.8,True
-PROD0165,Terra Waterproof Shell 165,Apparel,Waterproof Shell,Trail,Unisex,Beige,Autumn,2024-05-31,419.45,209.65,Technical,True,True,21.3,True
-PROD0166,Terra Fleece 166,Apparel,Fleece,Trail,Men,Brown,Autumn,2025-09-22,169.43,61.18,Technical,False,True,83.4,True
-PROD0167,Terra Socks 167,Accessory,Socks,Gym,Women,White,Core,2023-05-10,29.92,9.9,Performance,False,False,47.6,True
-PROD0168,Terra Running Jacket 168,Apparel,Running Jacket,Running,Women,White,Winter,2024-03-16,194.44,63.28,Technical,True,False,74.5,True
-PROD0169,Terra Sports Bra 169,Apparel,Sports Bra,Gym,Unisex,Blue,Autumn,2025-12-09,57.02,21.2,Performance,False,False,42.1,True
-PROD0170,Terra Backpack 170,Accessory,Backpack,Lifestyle,Women,Green,Autumn,2023-06-03,139.69,50.92,Technical,False,False,86.8,True
-PROD0171,Terra Shorts 171,Apparel,Shorts,Trail,Women,Grey,Summer,2024-02-03,60.22,20.21,Performance,False,False,51.6,True
-PROD0172,Terra Cap 172,Accessory,Cap,Running,Men,White,Spring,2023-08-16,34.29,7.83,Lifestyle,False,False,75.2,True
-PROD0173,Terra Backpack 173,Accessory,Backpack,Lifestyle,Women,Orange,Autumn,2023-09-24,161.78,58.32,Technical,True,False,36.0,True
-PROD0174,Terra Sports Bra 174,Apparel,Sports Bra,Gym,Unisex,Blue,Autumn,2025-03-10,68.55,20.11,Performance,False,False,40.4,True
-PROD0175,Terra Sports Bra 175,Apparel,Sports Bra,Gym,Unisex,Red,Core,2025-10-16,87.75,27.23,Performance,False,False,82.6,True
-PROD0176,Terra Shorts 176,Apparel,Shorts,Running,Women,Beige,Core,2024-03-13,105.87,39.98,Performance,False,False,69.5,True
-PROD0177,Terra Socks 177,Accessory,Socks,Gym,Unisex,Orange,Winter,2023-06-24,16.92,5.37,Performance,False,False,85.6,True
-PROD0178,Terra Cap 178,Accessory,Cap,Multi-Sport,Men,Grey,Summer,2024-04-28,32.2,7.01,Lifestyle,False,False,83.0,True
-PROD0179,Terra Running Vest 179,Accessory,Running Vest,Trail,Men,Blue,Autumn,2023-11-14,112.21,46.06,Technical,False,False,93.4,True
-PROD0180,Terra Backpack 180,Accessory,Backpack,Outdoor,Unisex,Green,Core,2023-07-26,152.81,60.47,Technical,True,False,42.7,True
-PROD0181,Terra Socks 181,Accessory,Socks,Gym,Women,Grey,Core,2024-06-10,20.74,7.2,Performance,False,False,86.4,True
-PROD0182,Terra T-Shirt 182,Apparel,T-Shirt,Gym,Men,Brown,Core,2025-04-24,48.81,17.41,Lifestyle,False,False,22.5,True
-PROD0183,Terra Leggings 183,Apparel,Leggings,Running,Women,Brown,Autumn,2024-01-30,136.71,35.22,Performance,False,False,62.5,True
-PROD0184,Terra Socks 184,Accessory,Socks,Hiking,Unisex,Black,Autumn,2025-08-07,18.69,4.38,Performance,False,False,62.5,True
-PROD0185,Terra Fleece 185,Apparel,Fleece,Hiking,Unisex,Beige,Core,2023-12-07,164.95,65.33,Technical,False,True,97.8,True
-PROD0186,Terra Running Vest 186,Accessory,Running Vest,Trail,Women,White,Core,2025-06-08,172.97,60.51,Technical,True,False,99.2,True
-PROD0187,Terra T-Shirt 187,Apparel,T-Shirt,Lifestyle,Unisex,Black,Winter,2025-03-16,45.3,16.95,Lifestyle,False,False,77.0,True
-PROD0188,Terra Fleece 188,Apparel,Fleece,Hiking,Unisex,White,Core,2024-11-22,154.61,57.23,Technical,False,True,87.4,True
-PROD0189,Terra Leggings 189,Apparel,Leggings,Pilates,Unisex,Grey,Core,2025-08-24,121.16,45.85,Performance,False,False,43.6,True
-PROD0190,Terra Running Jacket 190,Apparel,Running Jacket,Running,Men,Red,Summer,2023-12-04,193.48,74.13,Technical,True,False,74.0,True
-PROD0191,Terra Cap 191,Accessory,Cap,Lifestyle,Women,Orange,Spring,2023-02-26,26.85,7.17,Lifestyle,False,False,86.4,True
-PROD0192,Terra Running Jacket 192,Apparel,Running Jacket,Trail,Men,Green,Winter,2023-09-01,264.06,97.94,Technical,True,False,68.2,True
-PROD0193,Terra Cap 193,Accessory,Cap,Lifestyle,Unisex,Navy,Spring,2025-01-02,26.8,7.43,Lifestyle,False,False,34.5,True
-PROD0194,Terra Shorts 194,Apparel,Shorts,Gym,Unisex,Green,Autumn,2024-06-24,64.76,16.2,Performance,True,False,32.3,True
-PROD0195,Terra Backpack 195,Accessory,Backpack,Hiking,Men,Navy,Autumn,2023-08-02,125.1,49.29,Technical,True,False,60.0,True
-PROD0196,Terra Socks 196,Accessory,Socks,Gym,Women,Grey,Core,2024-03-27,27.75,9.71,Performance,False,False,99.5,True
-PROD0197,Terra Backpack 197,Accessory,Backpack,Lifestyle,Unisex,Navy,Summer,2025-03-02,179.02,70.87,Technical,False,False,55.2,True
-PROD0198,Terra Backpack 198,Accessory,Backpack,Outdoor,Women,Blue,Core,2023-08-12,247.76,108.0,Technical,False,False,60.4,True
-PROD0199,Terra Waterproof Shell 199,Apparel,Waterproof Shell,Trail,Women,Brown,Core,2025-06-04,313.91,145.14,Technical,True,False,38.2,True
-PROD0200,Terra Socks 200,Accessory,Socks,Gym,Women,Navy,Autumn,2023-05-20,23.31,4.74,Performance,False,True,24.4,True
+product_id,product_name,category,subcategory,sport_positioning,gender_positioning,collection,launch_date,list_price,unit_cost,technical_level,waterproof,insulated,sustainable_material_pct
+PROD0001,Terra T-Shirt 001,Apparel,T-Shirt,Lifestyle,Women,Winter,2023-10-16,70.96,22.41,Lifestyle,False,False,95.7
+PROD0002,Terra T-Shirt 002,Apparel,T-Shirt,Multi-Sport,Men,Spring,2023-03-05,45.12,14.33,Lifestyle,False,False,84.5
+PROD0003,Terra T-Shirt 003,Apparel,T-Shirt,Lifestyle,Unisex,Autumn,2023-09-20,62.18,16.14,Lifestyle,False,False,97.9
+PROD0004,Terra T-Shirt 004,Apparel,T-Shirt,Running,Women,Spring,2024-03-01,71.14,19.86,Lifestyle,False,False,99.4
+PROD0005,Terra T-Shirt 005,Apparel,T-Shirt,Running,Women,Spring,2025-02-23,53.03,16.2,Lifestyle,False,False,93.4
+PROD0006,Terra T-Shirt 006,Apparel,T-Shirt,Gym,Unisex,Autumn,2023-08-18,57.49,21.55,Lifestyle,False,False,85.8
+PROD0007,Terra T-Shirt 007,Apparel,T-Shirt,Running,Unisex,Core,2025-06-01,67.3,18.24,Lifestyle,False,False,95.6
+PROD0008,Terra T-Shirt 008,Apparel,T-Shirt,Running,Men,Core,2023-09-27,58.36,19.57,Lifestyle,False,False,95.3
+PROD0009,Terra T-Shirt 009,Apparel,T-Shirt,Gym,Women,Summer,2025-05-06,65.39,21.78,Lifestyle,False,False,88.2
+PROD0010,Terra T-Shirt 010,Apparel,T-Shirt,Gym,Women,Core,2025-07-26,74.14,21.14,Lifestyle,False,False,95.7
+PROD0011,Terra T-Shirt 011,Apparel,T-Shirt,Running,Women,Autumn,2023-09-28,66.57,20.7,Lifestyle,False,False,89.2
+PROD0012,Terra T-Shirt 012,Apparel,T-Shirt,Lifestyle,Men,Core,2024-06-29,46.45,15.1,Lifestyle,False,False,92.6
+PROD0013,Terra T-Shirt 013,Apparel,T-Shirt,Multi-Sport,Unisex,Core,2024-01-07,54.47,14.33,Lifestyle,False,False,99.4
+PROD0014,Terra T-Shirt 014,Apparel,T-Shirt,Gym,Women,Spring,2025-02-13,71.15,25.44,Lifestyle,False,False,84.0
+PROD0015,Terra T-Shirt 015,Apparel,T-Shirt,Multi-Sport,Unisex,Core,2024-05-22,52.24,17.6,Lifestyle,False,False,92.5
+PROD0016,Terra T-Shirt 016,Apparel,T-Shirt,Gym,Women,Core,2025-04-10,63.36,22.02,Lifestyle,False,False,82.9
+PROD0017,Terra T-Shirt 017,Apparel,T-Shirt,Multi-Sport,Men,Core,2023-11-25,44.14,14.93,Lifestyle,False,False,80.5
+PROD0018,Terra T-Shirt 018,Apparel,T-Shirt,Running,Men,Autumn,2023-08-12,78.34,25.25,Lifestyle,False,False,91.4
+PROD0019,Terra T-Shirt 019,Apparel,T-Shirt,Lifestyle,Men,Core,2024-08-20,58.94,17.1,Lifestyle,False,False,97.9
+PROD0020,Terra T-Shirt 020,Apparel,T-Shirt,Lifestyle,Women,Core,2024-12-30,45.61,15.19,Lifestyle,False,False,95.4
+PROD0021,Terra T-Shirt 021,Apparel,T-Shirt,Running,Men,Core,2023-09-17,44.31,17.17,Lifestyle,False,False,96.2
+PROD0022,Terra T-Shirt 022,Apparel,T-Shirt,Lifestyle,Women,Core,2024-11-12,52.69,20.7,Lifestyle,False,False,80.9
+PROD0023,Terra T-Shirt 023,Apparel,T-Shirt,Lifestyle,Unisex,Winter,2023-10-17,57.4,22.89,Lifestyle,False,False,86.3
+PROD0024,Terra T-Shirt 024,Apparel,T-Shirt,Running,Unisex,Spring,2025-03-11,70.88,24.75,Lifestyle,False,False,84.8
+PROD0025,Terra T-Shirt 025,Apparel,T-Shirt,Running,Men,Core,2025-03-29,44.91,16.83,Lifestyle,False,False,86.2
+PROD0026,Terra T-Shirt 026,Apparel,T-Shirt,Running,Women,Summer,2024-04-28,71.1,28.14,Lifestyle,False,False,93.6
+PROD0027,Terra T-Shirt 027,Apparel,T-Shirt,Lifestyle,Women,Autumn,2025-08-19,44.87,14.63,Lifestyle,False,False,94.8
+PROD0028,Terra T-Shirt 028,Apparel,T-Shirt,Gym,Women,Winter,2023-10-15,45.24,12.15,Lifestyle,False,False,99.1
+PROD0029,Terra Sports Bra 029,Apparel,Sports Bra,Pilates,Men,Core,2024-10-16,61.46,23.89,Performance,False,False,66.8
+PROD0030,Terra Sports Bra 030,Apparel,Sports Bra,Running,Men,Winter,2025-10-14,88.65,30.09,Performance,False,False,54.4
+PROD0031,Terra Sports Bra 031,Apparel,Sports Bra,Pilates,Men,Core,2024-01-02,83.18,30.74,Performance,False,False,66.5
+PROD0032,Terra Sports Bra 032,Apparel,Sports Bra,Running,Men,Autumn,2025-09-24,64.97,20.39,Performance,False,False,79.8
+PROD0033,Terra Sports Bra 033,Apparel,Sports Bra,Pilates,Women,Core,2024-06-05,82.66,21.97,Performance,False,False,55.8
+PROD0034,Terra Sports Bra 034,Apparel,Sports Bra,Gym,Women,Core,2024-09-24,86.84,23.87,Performance,False,False,57.0
+PROD0035,Terra Sports Bra 035,Apparel,Sports Bra,Pilates,Women,Autumn,2025-08-25,52.14,17.66,Performance,False,False,84.0
+PROD0036,Terra Sports Bra 036,Apparel,Sports Bra,Gym,Men,Core,2023-09-07,51.74,14.34,Performance,False,False,64.9
+PROD0037,Terra Sports Bra 037,Apparel,Sports Bra,Gym,Unisex,Autumn,2023-08-20,70.95,18.82,Performance,False,False,86.1
+PROD0038,Terra Sports Bra 038,Apparel,Sports Bra,Pilates,Unisex,Autumn,2024-09-23,89.18,33.02,Performance,False,False,70.6
+PROD0039,Terra Sports Bra 039,Apparel,Sports Bra,Pilates,Women,Spring,2025-02-04,84.3,26.93,Performance,False,False,66.7
+PROD0040,Terra Sports Bra 040,Apparel,Sports Bra,Gym,Women,Spring,2025-02-13,59.3,18.09,Performance,False,False,88.0
+PROD0041,Terra Sports Bra 041,Apparel,Sports Bra,Pilates,Unisex,Core,2024-05-19,86.65,27.91,Performance,False,False,71.3
+PROD0042,Terra Sports Bra 042,Apparel,Sports Bra,Gym,Men,Autumn,2023-08-07,75.32,22.09,Performance,False,False,74.6
+PROD0043,Terra Sports Bra 043,Apparel,Sports Bra,Running,Women,Core,2024-07-27,53.8,19.31,Performance,False,False,73.7
+PROD0044,Terra Sports Bra 044,Apparel,Sports Bra,Gym,Men,Winter,2023-10-17,81.3,30.02,Performance,False,False,56.9
+PROD0045,Terra Sports Bra 045,Apparel,Sports Bra,Pilates,Unisex,Spring,2025-02-02,72.6,24.38,Performance,False,False,74.0
+PROD0046,Terra Sports Bra 046,Apparel,Sports Bra,Gym,Men,Core,2025-03-01,87.25,23.38,Performance,False,False,76.8
+PROD0047,Terra Shorts 047,Apparel,Shorts,Running,Women,Autumn,2024-09-25,76.68,29.5,Performance,False,False,55.9
+PROD0048,Terra Shorts 048,Apparel,Shorts,Trail,Men,Spring,2023-02-23,106.81,33.72,Performance,False,False,69.2
+PROD0049,Terra Shorts 049,Apparel,Shorts,Trail,Women,Autumn,2025-09-02,78.82,31.37,Performance,False,False,54.9
+PROD0050,Terra Shorts 050,Apparel,Shorts,Gym,Unisex,Core,2023-04-15,89.41,31.55,Performance,False,False,67.7
+PROD0051,Terra Shorts 051,Apparel,Shorts,Running,Unisex,Autumn,2024-09-08,75.1,29.12,Performance,False,False,83.5
+PROD0052,Terra Shorts 052,Apparel,Shorts,Gym,Women,Autumn,2023-08-25,65.32,26.12,Performance,False,False,59.6
+PROD0053,Terra Shorts 053,Apparel,Shorts,Trail,Men,Core,2023-01-16,67.15,24.61,Performance,True,False,52.1
+PROD0054,Terra Shorts 054,Apparel,Shorts,Trail,Women,Core,2023-11-12,90.3,33.43,Performance,False,False,80.9
+PROD0055,Terra Shorts 055,Apparel,Shorts,Running,Women,Core,2024-05-14,94.91,35.66,Performance,False,False,75.2
+PROD0056,Terra Shorts 056,Apparel,Shorts,Running,Women,Autumn,2023-08-10,102.56,28.03,Performance,False,False,74.5
+PROD0057,Terra Shorts 057,Apparel,Shorts,Trail,Unisex,Core,2023-08-29,62.73,21.48,Performance,False,False,57.3
+PROD0058,Terra Shorts 058,Apparel,Shorts,Gym,Men,Autumn,2023-09-16,109.0,34.75,Performance,False,False,62.1
+PROD0059,Terra Shorts 059,Apparel,Shorts,Trail,Women,Summer,2024-04-30,88.9,31.56,Performance,False,False,69.0
+PROD0060,Terra Shorts 060,Apparel,Shorts,Running,Men,Core,2023-04-13,65.96,17.82,Performance,False,False,66.5
+PROD0061,Terra Shorts 061,Apparel,Shorts,Running,Women,Summer,2024-06-13,80.44,22.74,Performance,False,False,59.0
+PROD0062,Terra Shorts 062,Apparel,Shorts,Gym,Men,Autumn,2024-09-09,88.62,29.68,Performance,False,False,72.0
+PROD0063,Terra Shorts 063,Apparel,Shorts,Gym,Unisex,Spring,2025-03-25,81.57,28.05,Performance,False,False,70.1
+PROD0064,Terra Shorts 064,Apparel,Shorts,Trail,Men,Core,2024-07-23,86.01,31.82,Performance,False,False,83.7
+PROD0065,Terra Shorts 065,Apparel,Shorts,Running,Women,Core,2024-06-18,62.78,18.34,Performance,False,False,83.1
+PROD0066,Terra Shorts 066,Apparel,Shorts,Gym,Women,Core,2023-09-20,102.83,31.45,Performance,False,False,89.8
+PROD0067,Terra Shorts 067,Apparel,Shorts,Trail,Women,Autumn,2023-08-27,98.61,29.25,Performance,False,False,58.4
+PROD0068,Terra Shorts 068,Apparel,Shorts,Trail,Unisex,Core,2024-04-02,86.25,23.68,Performance,False,False,89.6
+PROD0069,Terra Shorts 069,Apparel,Shorts,Running,Unisex,Spring,2023-03-31,67.08,21.28,Performance,False,False,56.0
+PROD0070,Terra Shorts 070,Apparel,Shorts,Running,Women,Core,2024-11-23,69.05,26.66,Performance,False,False,69.7
+PROD0071,Terra Leggings 071,Apparel,Leggings,Gym,Men,Autumn,2025-09-04,85.05,24.37,Performance,False,False,52.3
+PROD0072,Terra Leggings 072,Apparel,Leggings,Running,Men,Core,2025-10-17,102.0,33.75,Performance,False,False,70.2
+PROD0073,Terra Leggings 073,Apparel,Leggings,Gym,Men,Winter,2024-10-10,134.57,45.49,Performance,False,False,65.9
+PROD0074,Terra Leggings 074,Apparel,Leggings,Gym,Women,Core,2023-01-10,135.04,46.54,Performance,False,False,67.9
+PROD0075,Terra Leggings 075,Apparel,Leggings,Pilates,Unisex,Core,2024-03-31,98.45,33.45,Performance,False,False,74.8
+PROD0076,Terra Leggings 076,Apparel,Leggings,Running,Unisex,Winter,2024-11-03,108.65,39.57,Performance,False,False,54.6
+PROD0077,Terra Leggings 077,Apparel,Leggings,Gym,Unisex,Summer,2025-06-20,123.94,39.17,Performance,False,False,79.4
+PROD0078,Terra Leggings 078,Apparel,Leggings,Pilates,Unisex,Core,2023-11-23,125.0,37.75,Performance,False,False,68.6
+PROD0079,Terra Leggings 079,Apparel,Leggings,Pilates,Men,Autumn,2024-09-27,138.68,43.23,Performance,False,False,82.9
+PROD0080,Terra Leggings 080,Apparel,Leggings,Pilates,Men,Core,2024-02-09,82.22,25.15,Performance,False,False,84.6
+PROD0081,Terra Leggings 081,Apparel,Leggings,Pilates,Men,Core,2025-09-21,124.37,46.03,Performance,False,True,70.6
+PROD0082,Terra Leggings 082,Apparel,Leggings,Running,Men,Spring,2025-02-06,120.64,30.7,Performance,False,False,63.9
+PROD0083,Terra Leggings 083,Apparel,Leggings,Gym,Women,Summer,2024-05-02,131.2,38.68,Performance,False,False,53.4
+PROD0084,Terra Leggings 084,Apparel,Leggings,Running,Women,Autumn,2024-09-06,100.52,35.95,Performance,False,False,73.0
+PROD0085,Terra Leggings 085,Apparel,Leggings,Gym,Unisex,Summer,2023-04-17,139.85,49.67,Performance,False,False,64.6
+PROD0086,Terra Leggings 086,Apparel,Leggings,Gym,Men,Core,2023-11-27,84.03,23.55,Performance,False,False,88.4
+PROD0087,Terra Leggings 087,Apparel,Leggings,Running,Women,Core,2024-01-15,125.12,41.43,Performance,False,False,71.2
+PROD0088,Terra Leggings 088,Apparel,Leggings,Pilates,Women,Autumn,2023-08-05,124.54,42.17,Performance,False,False,85.0
+PROD0089,Terra Leggings 089,Apparel,Leggings,Running,Men,Autumn,2024-09-16,96.99,32.42,Performance,False,False,77.0
+PROD0090,Terra Leggings 090,Apparel,Leggings,Pilates,Men,Autumn,2024-08-26,128.88,49.67,Performance,False,False,88.2
+PROD0091,Terra Leggings 091,Apparel,Leggings,Running,Women,Core,2025-10-25,110.76,34.88,Performance,False,False,52.6
+PROD0092,Terra Leggings 092,Apparel,Leggings,Pilates,Women,Core,2023-02-22,107.31,35.13,Performance,False,False,77.9
+PROD0093,Terra Leggings 093,Apparel,Leggings,Gym,Women,Spring,2023-03-14,92.42,27.29,Performance,False,False,50.0
+PROD0094,Terra Leggings 094,Apparel,Leggings,Gym,Unisex,Core,2024-03-25,110.49,35.74,Performance,False,False,62.9
+PROD0095,Terra Leggings 095,Apparel,Leggings,Pilates,Women,Autumn,2024-08-01,94.55,30.44,Performance,False,True,68.4
+PROD0096,Terra Leggings 096,Apparel,Leggings,Pilates,Unisex,Core,2023-12-16,122.69,33.44,Performance,False,False,51.3
+PROD0097,Terra Fleece 097,Apparel,Fleece,Trail,Men,Core,2023-04-08,131.06,51.51,Technical,False,True,64.1
+PROD0098,Terra Fleece 098,Apparel,Fleece,Lifestyle,Women,Autumn,2025-09-30,181.91,59.01,Technical,False,True,54.1
+PROD0099,Terra Fleece 099,Apparel,Fleece,Hiking,Unisex,Autumn,2023-08-28,218.46,77.39,Technical,False,True,46.6
+PROD0100,Terra Fleece 100,Apparel,Fleece,Trail,Women,Core,2025-03-17,151.76,47.31,Technical,False,True,58.3
+PROD0101,Terra Fleece 101,Apparel,Fleece,Trail,Women,Winter,2023-10-28,193.86,67.38,Technical,False,True,36.9
+PROD0102,Terra Fleece 102,Apparel,Fleece,Hiking,Unisex,Core,2025-10-09,170.73,76.62,Technical,False,True,65.9
+PROD0103,Terra Fleece 103,Apparel,Fleece,Hiking,Women,Summer,2023-05-20,208.04,79.14,Technical,False,True,56.5
+PROD0104,Terra Fleece 104,Apparel,Fleece,Hiking,Unisex,Summer,2023-05-13,203.62,61.64,Technical,False,True,52.1
+PROD0105,Terra Fleece 105,Apparel,Fleece,Trail,Unisex,Autumn,2025-08-18,159.62,64.11,Technical,False,True,50.6
+PROD0106,Terra Fleece 106,Apparel,Fleece,Trail,Women,Summer,2024-04-26,121.25,50.85,Technical,False,True,57.3
+PROD0107,Terra Fleece 107,Apparel,Fleece,Hiking,Unisex,Core,2025-01-17,134.94,59.94,Technical,False,True,48.8
+PROD0108,Terra Fleece 108,Apparel,Fleece,Trail,Unisex,Spring,2024-02-15,193.35,83.48,Technical,False,True,52.8
+PROD0109,Terra Fleece 109,Apparel,Fleece,Lifestyle,Women,Winter,2025-11-05,130.46,56.83,Technical,False,True,30.9
+PROD0110,Terra Fleece 110,Apparel,Fleece,Lifestyle,Women,Autumn,2025-09-18,217.92,77.7,Technical,False,True,53.2
+PROD0111,Terra Fleece 111,Apparel,Fleece,Trail,Women,Winter,2024-11-01,160.91,62.8,Technical,False,True,35.2
+PROD0112,Terra Fleece 112,Apparel,Fleece,Lifestyle,Women,Core,2023-01-26,136.29,54.88,Technical,False,True,65.2
+PROD0113,Terra Running Jacket 113,Apparel,Running Jacket,Trail,Men,Core,2024-06-08,191.72,63.33,Technical,True,True,54.1
+PROD0114,Terra Running Jacket 114,Apparel,Running Jacket,Running,Women,Spring,2025-03-11,293.9,116.94,Technical,True,False,73.8
+PROD0115,Terra Running Jacket 115,Apparel,Running Jacket,Trail,Women,Winter,2024-10-04,285.25,127.7,Technical,True,False,57.6
+PROD0116,Terra Running Jacket 116,Apparel,Running Jacket,Trail,Women,Summer,2024-04-19,164.55,70.24,Technical,True,True,72.6
+PROD0117,Terra Running Jacket 117,Apparel,Running Jacket,Running,Men,Core,2025-07-18,237.63,97.49,Technical,False,False,40.3
+PROD0118,Terra Running Jacket 118,Apparel,Running Jacket,Running,Women,Winter,2025-10-11,291.23,92.64,Technical,False,True,50.7
+PROD0119,Terra Running Jacket 119,Apparel,Running Jacket,Trail,Unisex,Autumn,2023-08-25,217.48,73.24,Technical,True,False,42.4
+PROD0120,Terra Running Jacket 120,Apparel,Running Jacket,Trail,Unisex,Winter,2023-10-14,186.72,60.53,Technical,True,False,56.5
+PROD0121,Terra Running Jacket 121,Apparel,Running Jacket,Running,Unisex,Core,2024-01-30,230.49,84.17,Technical,True,False,38.2
+PROD0122,Terra Running Jacket 122,Apparel,Running Jacket,Running,Women,Core,2025-08-16,233.16,77.21,Technical,False,False,60.4
+PROD0123,Terra Running Jacket 123,Apparel,Running Jacket,Running,Unisex,Summer,2024-06-29,219.75,79.12,Technical,False,False,53.4
+PROD0124,Terra Running Jacket 124,Apparel,Running Jacket,Running,Women,Core,2024-09-04,172.93,75.76,Technical,False,False,67.5
+PROD0125,Terra Running Jacket 125,Apparel,Running Jacket,Running,Men,Winter,2024-11-06,269.05,89.27,Technical,True,False,44.0
+PROD0126,Terra Running Jacket 126,Apparel,Running Jacket,Running,Men,Core,2024-04-20,159.31,58.74,Technical,True,False,46.0
+PROD0127,Terra Running Jacket 127,Apparel,Running Jacket,Trail,Men,Autumn,2024-09-29,258.93,95.59,Technical,False,False,38.9
+PROD0128,Terra Running Jacket 128,Apparel,Running Jacket,Running,Unisex,Core,2025-12-18,251.71,107.46,Technical,False,False,56.6
+PROD0129,Terra Running Jacket 129,Apparel,Running Jacket,Running,Unisex,Winter,2025-10-09,249.0,86.0,Technical,True,False,66.0
+PROD0130,Terra Running Jacket 130,Apparel,Running Jacket,Trail,Women,Spring,2023-03-06,226.34,98.7,Technical,True,False,36.3
+PROD0131,Terra Running Jacket 131,Apparel,Running Jacket,Trail,Women,Autumn,2025-08-13,163.76,65.52,Technical,True,True,68.9
+PROD0132,Terra Running Jacket 132,Apparel,Running Jacket,Running,Women,Autumn,2023-09-01,279.09,94.05,Technical,True,False,63.7
+PROD0133,Terra Running Jacket 133,Apparel,Running Jacket,Trail,Unisex,Summer,2024-05-29,286.55,94.67,Technical,True,False,61.3
+PROD0134,Terra Running Jacket 134,Apparel,Running Jacket,Trail,Women,Spring,2024-02-20,198.07,88.42,Technical,True,False,60.5
+PROD0135,Terra Running Jacket 135,Apparel,Running Jacket,Running,Men,Winter,2023-11-30,216.59,95.38,Technical,True,False,46.7
+PROD0136,Terra Running Jacket 136,Apparel,Running Jacket,Trail,Unisex,Winter,2023-11-27,186.63,81.54,Technical,False,False,68.1
+PROD0137,Terra Waterproof Shell 137,Apparel,Waterproof Shell,Trail,Women,Core,2024-10-26,330.54,138.32,Technical,True,False,46.4
+PROD0138,Terra Waterproof Shell 138,Apparel,Waterproof Shell,Hiking,Women,Winter,2024-11-13,270.34,127.71,Technical,True,False,63.6
+PROD0139,Terra Waterproof Shell 139,Apparel,Waterproof Shell,Trail,Unisex,Core,2023-05-07,251.82,117.39,Technical,True,False,46.9
+PROD0140,Terra Waterproof Shell 140,Apparel,Waterproof Shell,Hiking,Women,Winter,2024-11-24,362.52,177.61,Technical,True,False,65.4
+PROD0141,Terra Waterproof Shell 141,Apparel,Waterproof Shell,Hiking,Men,Autumn,2024-09-14,372.59,136.66,Technical,True,False,57.4
+PROD0142,Terra Waterproof Shell 142,Apparel,Waterproof Shell,Trail,Women,Winter,2023-10-06,370.12,184.62,Technical,True,False,42.7
+PROD0143,Terra Waterproof Shell 143,Apparel,Waterproof Shell,Outdoor,Women,Core,2024-02-09,326.08,134.9,Technical,True,False,62.8
+PROD0144,Terra Waterproof Shell 144,Apparel,Waterproof Shell,Outdoor,Men,Autumn,2025-08-09,315.83,125.77,Technical,True,True,65.2
+PROD0145,Terra Waterproof Shell 145,Apparel,Waterproof Shell,Hiking,Women,Summer,2023-06-16,242.1,90.31,Technical,True,False,61.0
+PROD0146,Terra Waterproof Shell 146,Apparel,Waterproof Shell,Hiking,Women,Autumn,2024-08-02,228.01,102.11,Technical,True,False,51.6
+PROD0147,Terra Waterproof Shell 147,Apparel,Waterproof Shell,Outdoor,Women,Spring,2024-03-10,408.42,148.63,Technical,True,False,60.0
+PROD0148,Terra Waterproof Shell 148,Apparel,Waterproof Shell,Hiking,Unisex,Core,2024-11-16,326.88,132.45,Technical,True,True,37.1
+PROD0149,Terra Waterproof Shell 149,Apparel,Waterproof Shell,Outdoor,Women,Spring,2025-02-06,260.33,123.26,Technical,True,False,45.7
+PROD0150,Terra Waterproof Shell 150,Apparel,Waterproof Shell,Hiking,Women,Winter,2024-10-23,421.27,209.09,Technical,True,False,59.4
+PROD0151,Terra Cap 151,Accessory,Cap,Multi-Sport,Women,Autumn,2024-08-07,39.16,11.07,Lifestyle,True,False,79.4
+PROD0152,Terra Cap 152,Accessory,Cap,Multi-Sport,Men,Autumn,2023-08-19,31.5,8.28,Lifestyle,False,False,80.9
+PROD0153,Terra Cap 153,Accessory,Cap,Running,Women,Autumn,2025-09-02,32.87,9.36,Lifestyle,False,False,85.9
+PROD0154,Terra Cap 154,Accessory,Cap,Lifestyle,Unisex,Spring,2025-03-01,29.3,9.77,Lifestyle,False,False,83.4
+PROD0155,Terra Cap 155,Accessory,Cap,Running,Women,Core,2025-09-05,29.89,9.02,Lifestyle,False,False,65.4
+PROD0156,Terra Cap 156,Accessory,Cap,Running,Women,Spring,2023-03-16,46.51,11.54,Lifestyle,False,False,68.2
+PROD0157,Terra Cap 157,Accessory,Cap,Running,Women,Core,2025-04-05,47.21,16.03,Lifestyle,False,False,94.1
+PROD0158,Terra Cap 158,Accessory,Cap,Multi-Sport,Women,Summer,2023-05-10,43.86,14.17,Lifestyle,False,False,97.9
+PROD0159,Terra Cap 159,Accessory,Cap,Multi-Sport,Men,Core,2025-05-28,39.42,12.65,Lifestyle,False,False,75.2
+PROD0160,Terra Cap 160,Accessory,Cap,Running,Women,Core,2024-12-18,34.94,10.05,Lifestyle,False,False,83.6
+PROD0161,Terra Socks 161,Accessory,Socks,Hiking,Unisex,Spring,2025-02-24,20.38,5.33,Performance,False,False,86.6
+PROD0162,Terra Socks 162,Accessory,Socks,Hiking,Men,Spring,2023-03-24,21.77,6.21,Performance,False,False,87.6
+PROD0163,Terra Socks 163,Accessory,Socks,Hiking,Women,Autumn,2025-09-25,16.42,3.69,Performance,False,False,85.1
+PROD0164,Terra Socks 164,Accessory,Socks,Gym,Women,Summer,2023-04-29,27.4,9.29,Performance,False,False,98.5
+PROD0165,Terra Socks 165,Accessory,Socks,Gym,Men,Core,2025-10-22,23.68,4.75,Performance,False,False,97.0
+PROD0166,Terra Socks 166,Accessory,Socks,Gym,Women,Core,2024-09-14,22.45,6.06,Performance,False,False,91.3
+PROD0167,Terra Socks 167,Accessory,Socks,Hiking,Men,Autumn,2023-08-28,19.06,4.27,Performance,False,False,97.1
+PROD0168,Terra Socks 168,Accessory,Socks,Hiking,Women,Winter,2024-11-15,17.81,5.15,Performance,False,False,91.3
+PROD0169,Terra Socks 169,Accessory,Socks,Hiking,Men,Spring,2025-03-20,29.73,8.65,Performance,False,False,96.8
+PROD0170,Terra Socks 170,Accessory,Socks,Running,Men,Winter,2023-10-13,19.27,4.73,Performance,False,False,83.3
+PROD0171,Terra Socks 171,Accessory,Socks,Running,Men,Summer,2023-05-08,25.02,6.42,Performance,False,False,82.8
+PROD0172,Terra Socks 172,Accessory,Socks,Gym,Men,Core,2024-07-15,17.83,4.49,Performance,False,False,81.6
+PROD0173,Terra Socks 173,Accessory,Socks,Hiking,Men,Summer,2024-04-08,24.78,8.2,Performance,False,False,99.9
+PROD0174,Terra Socks 174,Accessory,Socks,Running,Unisex,Autumn,2024-09-08,29.38,6.05,Performance,False,False,96.7
+PROD0175,Terra Socks 175,Accessory,Socks,Running,Men,Autumn,2025-09-19,16.76,3.5,Performance,False,False,87.9
+PROD0176,Terra Socks 176,Accessory,Socks,Running,Women,Winter,2023-11-22,21.68,4.54,Performance,False,False,81.9
+PROD0177,Terra Socks 177,Accessory,Socks,Gym,Unisex,Autumn,2023-08-24,28.01,8.58,Performance,False,False,95.9
+PROD0178,Terra Socks 178,Accessory,Socks,Gym,Unisex,Winter,2023-11-09,23.19,6.53,Performance,False,False,87.7
+PROD0179,Terra Running Vest 179,Accessory,Running Vest,Running,Unisex,Core,2025-03-04,122.54,43.96,Technical,False,False,60.6
+PROD0180,Terra Running Vest 180,Accessory,Running Vest,Trail,Women,Core,2023-11-06,93.17,30.15,Technical,False,False,78.9
+PROD0181,Terra Running Vest 181,Accessory,Running Vest,Running,Women,Core,2025-10-19,111.27,34.2,Technical,False,False,56.9
+PROD0182,Terra Running Vest 182,Accessory,Running Vest,Trail,Unisex,Autumn,2025-09-05,146.34,48.33,Technical,False,False,34.5
+PROD0183,Terra Running Vest 183,Accessory,Running Vest,Running,Unisex,Winter,2025-11-03,110.33,40.35,Technical,False,False,46.0
+PROD0184,Terra Running Vest 184,Accessory,Running Vest,Running,Unisex,Spring,2025-02-25,148.79,59.65,Technical,True,False,39.4
+PROD0185,Terra Running Vest 185,Accessory,Running Vest,Trail,Men,Summer,2023-04-09,99.66,37.34,Technical,False,False,53.9
+PROD0186,Terra Running Vest 186,Accessory,Running Vest,Running,Men,Summer,2023-06-05,127.96,39.67,Technical,True,False,53.5
+PROD0187,Terra Running Vest 187,Accessory,Running Vest,Trail,Men,Core,2025-05-27,170.71,63.39,Technical,False,False,61.9
+PROD0188,Terra Running Vest 188,Accessory,Running Vest,Trail,Men,Core,2024-04-21,167.06,65.93,Technical,False,False,51.3
+PROD0189,Terra Running Vest 189,Accessory,Running Vest,Running,Women,Autumn,2024-08-29,163.09,61.3,Technical,False,False,39.9
+PROD0190,Terra Running Vest 190,Accessory,Running Vest,Running,Women,Winter,2025-10-13,146.41,60.33,Technical,False,False,39.9
+PROD0191,Terra Backpack 191,Accessory,Backpack,Lifestyle,Unisex,Winter,2025-10-12,143.7,54.52,Technical,True,False,54.1
+PROD0192,Terra Backpack 192,Accessory,Backpack,Hiking,Men,Core,2024-02-24,122.11,41.64,Technical,False,False,54.2
+PROD0193,Terra Backpack 193,Accessory,Backpack,Outdoor,Unisex,Autumn,2023-09-07,217.33,89.58,Technical,True,False,42.1
+PROD0194,Terra Backpack 194,Accessory,Backpack,Lifestyle,Women,Core,2025-09-24,170.12,61.04,Technical,True,False,52.6
+PROD0195,Terra Backpack 195,Accessory,Backpack,Lifestyle,Unisex,Core,2024-08-14,145.44,51.69,Technical,True,False,69.7
+PROD0196,Terra Backpack 196,Accessory,Backpack,Lifestyle,Unisex,Winter,2025-10-31,249.82,97.94,Technical,True,False,35.6
+PROD0197,Terra Backpack 197,Accessory,Backpack,Outdoor,Men,Spring,2024-02-22,171.58,64.2,Technical,False,False,44.0
+PROD0198,Terra Backpack 198,Accessory,Backpack,Lifestyle,Unisex,Winter,2025-10-01,218.95,93.53,Technical,True,False,45.7
+PROD0199,Terra Backpack 199,Accessory,Backpack,Outdoor,Women,Core,2025-12-26,190.94,84.17,Technical,True,False,37.3
+PROD0200,Terra Backpack 200,Accessory,Backpack,Lifestyle,Women,Autumn,2023-08-01,242.39,87.37,Technical,True,False,45.6

@@ -165,43 +165,82 @@ For example, Urban Runners may have a higher probability of purchasing frequentl
 
 ### Grain
 
-**One row per sellable product / SKU-level product definition.**
+**One row per product style.**
 
-| Column                     | Type    | Description                                      |
-| -------------------------- | ------- | ------------------------------------------------ |
-| `product_id`               | STRING  | Unique product identifier                        |
-| `product_name`             | STRING  | Product name                                     |
-| `category`                 | STRING  | Apparel or Accessory                             |
-| `subcategory`              | STRING  | Jacket, leggings, cap, backpack, etc.            |
-| `sport_positioning`        | STRING  | Running, hiking, Pilates, multi-sport, lifestyle |
-| `gender_positioning`       | STRING  | Women's, men's or unisex                         |
-| `colour_family`            | STRING  | Simplified colour group                          |
-| `collection`               | STRING  | Seasonal or named collection                     |
-| `launch_date`              | DATE    | Product launch date                              |
-| `list_price`               | DECIMAL | Standard retail price                            |
-| `unit_cost`                | DECIMAL | Synthetic cost of goods sold                     |
-| `technical_level`          | STRING  | Lifestyle, performance or technical              |
-| `waterproof`               | BOOLEAN | Whether product is waterproof                    |
-| `insulated`                | BOOLEAN | Whether product provides insulation              |
-| `sustainable_material_pct` | DECIMAL | Percentage of sustainable/recycled materials     |
-| `active_flag`              | BOOLEAN | Whether product is currently sold                |
+A product represents a distinct Terra Active design rather than an individual colour-size SKU. Sellable variants are stored separately in `product_variants`.
+
+| Column | Type | Description |
+|---|---|---|
+| `product_id` | STRING | Unique product style identifier |
+| `product_name` | STRING | Product style name |
+| `category` | STRING | Apparel or Accessory |
+| `subcategory` | STRING | T-shirt, leggings, running jacket, cap, backpack, etc. |
+| `sport_positioning` | STRING | Running, hiking, Pilates, multi-sport, lifestyle, etc. |
+| `gender_positioning` | STRING | Women's, men's or unisex |
+| `collection` | STRING | Core or seasonal collection |
+| `launch_date` | DATE | Product style launch date |
+| `list_price` | DECIMAL | Standard retail price |
+| `unit_cost` | DECIMAL | Synthetic cost of goods sold |
+| `technical_level` | STRING | Lifestyle, performance or technical |
+| `waterproof` | BOOLEAN | Whether the product style is waterproof |
+| `insulated` | BOOLEAN | Whether the product style provides insulation |
+| `sustainable_material_pct` | DECIMAL | Percentage of sustainable/recycled materials |
 
 ### Why these attributes exist
 
 They allow analyses such as:
 
-* Revenue vs profitability
-* Product performance by category
-* Colour preference
-* Sustainability preference
-* Weather sensitivity
-* New collection performance
-* Accessory cross-selling
-* Performance vs lifestyle positioning
+- Revenue vs profitability
+- Product performance by category and subcategory
+- Sustainability preference
+- Weather sensitivity
+- New collection performance
+- Accessory cross-selling
+- Performance vs lifestyle positioning
+- Technical vs lifestyle product performance
 
 ---
 
-## 4.3 `orders`
+## 4.3 `product_variants`
+
+### Grain
+
+**One row per sellable colour-size SKU.**
+
+Each product style can be sold in multiple colours and sizes. `product_variants` therefore represents the individual SKUs that customers can purchase and that Terra Active must manage in inventory.
+
+| Column | Type | Description |
+|---|---|---|
+| `sku_id` | STRING | Unique sellable SKU identifier |
+| `product_id` | STRING | Parent product style identifier |
+| `colour_family` | STRING | Simplified colour group |
+| `size` | STRING | Product size or `ONE_SIZE` where applicable |
+| `active_flag` | BOOLEAN | Whether the SKU is currently available for sale |
+
+### Relationships
+
+- `product_variants.product_id` → `products.product_id`
+- One product style can have multiple product variants.
+- Each `sku_id` represents a unique product-colour-size combination.
+
+### Why these attributes exist
+
+Separating product styles from sellable SKUs allows analyses such as:
+
+- Colour preference within and across product styles
+- Size-level demand patterns
+- SKU-level sales performance
+- Size and colour availability
+- Stockout analysis
+- Inventory planning by colour and size
+- Return rates by size or colour
+- Identification of overstocked and understocked variants
+
+Future transactional and inventory tables should reference `sku_id` where the analysis requires the exact item purchased or stocked.
+
+---
+
+## 4.4 `orders`
 
 ### Grain
 
@@ -237,7 +276,7 @@ This avoids inconsistencies between:
 
 ---
 
-## 4.4 `order_items`
+## 4.5 `order_items`
 
 ### Grain
 
@@ -278,7 +317,7 @@ From this table we can calculate:
 
 ---
 
-## 4.5 `returns`
+## 4.6 `returns`
 
 ### Grain
 

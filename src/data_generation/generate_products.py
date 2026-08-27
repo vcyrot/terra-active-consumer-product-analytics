@@ -13,7 +13,6 @@ from config import GenerationConfig
 @dataclass(frozen=True)
 class ProductProfile:
     """Business rules associated with a Terra Active product type."""
-
     category: str
     subcategory: str
     min_price: float
@@ -24,6 +23,8 @@ class ProductProfile:
     waterproof_probability: float
     insulated_probability: float
     sport_options: tuple[str, ...]
+    min_sustainable_pct: float
+    max_sustainable_pct: float
     
 
 PRODUCT_PROFILES = [
@@ -38,6 +39,8 @@ PRODUCT_PROFILES = [
         waterproof_probability=0.00,
         insulated_probability=0.00,
         sport_options=("Running", "Gym", "Lifestyle", "Multi-Sport"),
+        min_sustainable_pct=80,
+        max_sustainable_pct=100,
     ),
     ProductProfile(
         category="Apparel",
@@ -50,6 +53,8 @@ PRODUCT_PROFILES = [
         waterproof_probability=0.00,
         insulated_probability=0.00,
         sport_options=("Gym", "Pilates", "Running"),
+        min_sustainable_pct=50,
+        max_sustainable_pct=90,
     ),
     ProductProfile(
         category="Apparel",
@@ -62,6 +67,8 @@ PRODUCT_PROFILES = [
         waterproof_probability=0.05,
         insulated_probability=0.00,
         sport_options=("Running", "Gym", "Trail"),
+        min_sustainable_pct=50,
+        max_sustainable_pct=90,
     ),
     ProductProfile(
         category="Apparel",
@@ -74,6 +81,8 @@ PRODUCT_PROFILES = [
         waterproof_probability=0.00,
         insulated_probability=0.05,
         sport_options=("Pilates", "Gym", "Running"),
+        min_sustainable_pct=50,
+        max_sustainable_pct=90,
     ),
     ProductProfile(
         category="Apparel",
@@ -86,6 +95,8 @@ PRODUCT_PROFILES = [
         waterproof_probability=0.05,
         insulated_probability=0.80,
         sport_options=("Hiking", "Trail", "Lifestyle"),
+        min_sustainable_pct=30,
+        max_sustainable_pct=70,
     ),
     ProductProfile(
         category="Apparel",
@@ -98,6 +109,8 @@ PRODUCT_PROFILES = [
         waterproof_probability=0.65,
         insulated_probability=0.25,
         sport_options=("Running", "Trail"),
+        min_sustainable_pct=30,
+        max_sustainable_pct=80,
     ),
     ProductProfile(
         category="Apparel",
@@ -110,6 +123,8 @@ PRODUCT_PROFILES = [
         waterproof_probability=0.95,
         insulated_probability=0.15,
         sport_options=("Hiking", "Trail", "Outdoor"),
+        min_sustainable_pct=30,
+        max_sustainable_pct=70,
     ),
     ProductProfile(
         category="Accessory",
@@ -122,6 +137,8 @@ PRODUCT_PROFILES = [
         waterproof_probability=0.05,
         insulated_probability=0.00,
         sport_options=("Running", "Lifestyle", "Multi-Sport"),
+        min_sustainable_pct=60,
+        max_sustainable_pct=100,
     ),
     ProductProfile(
         category="Accessory",
@@ -134,6 +151,8 @@ PRODUCT_PROFILES = [
         waterproof_probability=0.00,
         insulated_probability=0.10,
         sport_options=("Running", "Hiking", "Gym"),
+        min_sustainable_pct=80,
+        max_sustainable_pct=100,
     ),
     ProductProfile(
         category="Accessory",
@@ -146,6 +165,8 @@ PRODUCT_PROFILES = [
         waterproof_probability=0.30,
         insulated_probability=0.00,
         sport_options=("Running", "Trail"),
+        min_sustainable_pct=30,
+        max_sustainable_pct=80,
     ),
     ProductProfile(
         category="Accessory",
@@ -158,38 +179,25 @@ PRODUCT_PROFILES = [
         waterproof_probability=0.50,
         insulated_probability=0.00,
         sport_options=("Hiking", "Outdoor", "Lifestyle"),
+        min_sustainable_pct=35,
+        max_sustainable_pct=75,
     ),
 ]
 
 
-PRODUCT_PROFILE_WEIGHTS = np.array([
-    0.12,  # T-Shirt
-    0.08,  # Sports Bra
-    0.10,  # Shorts
-    0.10,  # Leggings
-    0.08,  # Fleece
-    0.10,  # Running Jacket
-    0.07,  # Waterproof Shell
-    0.10,  # Cap
-    0.10,  # Socks
-    0.07,  # Running Vest
-    0.08,  # Backpack
-])
-
-assert np.isclose(PRODUCT_PROFILE_WEIGHTS.sum(), 1.0)
-
-COLOUR_FAMILIES = (
-    "Black",
-    "White",
-    "Grey",
-    "Navy",
-    "Green",
-    "Brown",
-    "Red",
-    "Blue",
-    "Beige",
-    "Orange",
-)
+PRODUCT_ASSORTMENT = {
+    "T-Shirt": 28,
+    "Sports Bra": 18,
+    "Shorts": 24,
+    "Leggings": 26,
+    "Fleece": 16,
+    "Running Jacket": 24,
+    "Waterproof Shell": 14,
+    "Cap": 10,
+    "Socks": 18,
+    "Running Vest": 12,
+    "Backpack": 10,
+}
 
 GENDER_POSITIONING = (
     "Women",
@@ -204,15 +212,29 @@ COLLECTIONS = (
     "Autumn",
     "Winter",
 )
+COLLECTION_WEIGHTS = np.array([
+    0.35,  # Core
+    0.15,  # Spring
+    0.15,  # Summer
+    0.20,  # Autumn
+    0.15,  # Winter
+])
 
-def generate_products(
+assert np.isclose(COLLECTION_WEIGHTS.sum(), 1.0)
+
+COLLECTION_LAUNCH_MONTHS = {
+    "Spring": (2, 3),
+    "Summer": (4, 5, 6),
+    "Autumn": (8, 9),
+    "Winter": (10, 11),
+}
+
+def generate_launch_date(
+    rng: np.random.Generator,
+    collection: str,
     config: GenerationConfig,
-) -> pd.DataFrame:
-    """Generate the Terra Active synthetic product catalogue."""
-
-    rng = np.random.default_rng(config.random_seed)
-
-    records: list[dict[str, object]] = []
+) -> pd.Timestamp:
+    """Generate a launch date consistent with the collection."""
 
     available_dates = pd.date_range(
         config.start_date,
@@ -220,83 +242,150 @@ def generate_products(
         freq="D",
     )
 
-    for index in range(config.number_of_products):
+    if collection == "Core":
+        eligible_dates = available_dates
+    else:
+        eligible_months = COLLECTION_LAUNCH_MONTHS[
+            collection
+        ]
 
-        profile_index = rng.choice(
-            len(PRODUCT_PROFILES),
-            p=PRODUCT_PROFILE_WEIGHTS,
+        eligible_dates = available_dates[
+            available_dates.month.isin(
+                eligible_months
+            )
+        ]
+
+    return pd.Timestamp(
+        rng.choice(eligible_dates)
+    )
+
+def generate_products(
+    config: GenerationConfig,
+) -> pd.DataFrame:
+    """Generate the Terra Active synthetic product-style catalogue."""
+
+    rng = np.random.default_rng(
+        config.random_seed
+    )
+
+    if (
+        sum(PRODUCT_ASSORTMENT.values())
+        != config.number_of_products
+    ):
+        raise ValueError(
+            "PRODUCT_ASSORTMENT must sum to "
+            f"{config.number_of_products} products."
         )
 
-        profile = PRODUCT_PROFILES[profile_index]
+    profile_lookup = {
+        profile.subcategory: profile
+        for profile in PRODUCT_PROFILES
+    }
+    
+    missing_profiles = (
+        set(PRODUCT_ASSORTMENT)
+        - set(profile_lookup)
+    )
 
-        list_price = round(
-            rng.uniform(
-                profile.min_price,
-                profile.max_price,
-            ),
-            2,
+    if missing_profiles:
+        raise ValueError(
+            "Missing ProductProfile definitions for: "
+            f"{sorted(missing_profiles)}"
         )
 
-        cost_ratio = rng.uniform(
-            profile.min_cost_ratio,
-            profile.max_cost_ratio,
-        )
+    records: list[dict[str, object]] = []
 
-        unit_cost = round(
-            list_price * cost_ratio,
-            2,
-        )
+    product_number = 1
 
-        launch_date = pd.Timestamp(
-            rng.choice(available_dates)
-        )
+    for (
+        subcategory,
+        product_count,
+    ) in PRODUCT_ASSORTMENT.items():
 
-        product_id = f"PROD{index + 1:04d}"
+        profile = profile_lookup[
+            subcategory
+        ]
 
-        product_name = (
-            f"Terra {profile.subcategory} "
-            f"{index + 1:03d}"
-        )
+        for _ in range(product_count):
 
-        record = {
-            "product_id": product_id,
-            "product_name": product_name,
-            "category": profile.category,
-            "subcategory": profile.subcategory,
-            "sport_positioning": rng.choice(
-                profile.sport_options
-            ),
-            "gender_positioning": rng.choice(
-                GENDER_POSITIONING,
-                p=[0.40, 0.30, 0.30],
-            ),
-            "colour_family": rng.choice(
-                COLOUR_FAMILIES
-            ),
-            "collection": rng.choice(
+            list_price = round(
+                rng.uniform(
+                    profile.min_price,
+                    profile.max_price,
+                ),
+                2,
+            )
+
+            cost_ratio = rng.uniform(
+                profile.min_cost_ratio,
+                profile.max_cost_ratio,
+            )
+
+            unit_cost = round(
+                list_price * cost_ratio,
+                2,
+            )
+
+            collection = rng.choice(
                 COLLECTIONS,
-                p=[0.35, 0.15, 0.15, 0.20, 0.15],
-            ),
-            "launch_date": launch_date,
-            "list_price": list_price,
-            "unit_cost": unit_cost,
-            "technical_level": profile.technical_level,
-            "waterproof": bool(
-                rng.random()
-                < profile.waterproof_probability
-            ),
-            "insulated": bool(
-                rng.random()
-                < profile.insulated_probability
-            ),
-            "sustainable_material_pct": round(
-                rng.uniform(20, 100),
-                1,
-            ),
-            "active_flag": True,
-        }
+                p=COLLECTION_WEIGHTS,
+            )
 
-        records.append(record)
+            launch_date = generate_launch_date(
+                rng,
+                collection,
+                config,
+            )
+
+            product_id = (
+                f"PROD{product_number:04d}"
+            )
+
+            product_name = (
+                f"Terra "
+                f"{profile.subcategory} "
+                f"{product_number:03d}"
+            )
+
+            record = {
+                "product_id": product_id,
+                "product_name": product_name,
+                "category": profile.category,
+                "subcategory": profile.subcategory,
+                "sport_positioning": rng.choice(
+                    profile.sport_options
+                ),
+                "gender_positioning": rng.choice(
+                    GENDER_POSITIONING,
+                    p=[0.40, 0.30, 0.30],
+                ),
+                "collection": collection,
+                "launch_date": launch_date,
+                "list_price": list_price,
+                "unit_cost": unit_cost,
+                "technical_level": (
+                    profile.technical_level
+                ),
+                "waterproof": bool(
+                    rng.random()
+                    < profile.waterproof_probability
+                ),
+                "insulated": bool(
+                    rng.random()
+                    < profile.insulated_probability
+                ),
+                "sustainable_material_pct": round(
+                    rng.uniform(
+                        profile.min_sustainable_pct,
+                        profile.max_sustainable_pct,
+                    ),
+                    1,
+                ),
+            }
+
+            records.append(record)
+
+            product_number += 1
 
     return pd.DataFrame(records)
 
@@ -313,7 +402,6 @@ def validate_products(
         "subcategory",
         "sport_positioning",
         "gender_positioning",
-        "colour_family",
         "collection",
         "launch_date",
         "list_price",
@@ -322,7 +410,6 @@ def validate_products(
         "waterproof",
         "insulated",
         "sustainable_material_pct",
-        "active_flag",
     }
 
     missing_columns = required_columns.difference(
@@ -334,6 +421,55 @@ def validate_products(
             f"Missing product columns: "
             f"{sorted(missing_columns)}"
         )
+        
+    expected_count = sum(PRODUCT_ASSORTMENT.values())
+
+    if len(df) != expected_count:
+        raise ValueError(
+            f"Expected {expected_count} products, "
+            f"found {len(df)}."
+        )
+
+    actual_assortment = (
+        df["subcategory"]
+        .value_counts()
+        .to_dict()
+    )
+
+    if actual_assortment != PRODUCT_ASSORTMENT:
+        raise ValueError(
+            "Generated assortment does not match "
+            "PRODUCT_ASSORTMENT."
+        )
+
+    if not df["collection"].isin(
+        COLLECTIONS
+    ).all():
+        raise ValueError(
+            "Unknown product collection detected."
+        )
+
+    if not df["gender_positioning"].isin(
+        GENDER_POSITIONING
+    ).all():
+        raise ValueError(
+            "Unknown gender positioning detected."
+        )
+    
+    for collection, months in (
+        COLLECTION_LAUNCH_MONTHS.items()
+    ):
+        collection_rows = df[
+            df["collection"] == collection
+        ]
+
+        if not collection_rows[
+            "launch_date"
+        ].dt.month.isin(months).all():
+            raise ValueError(
+                f"{collection} products found outside "
+                f"their launch window."
+            )
 
     if df["product_id"].duplicated().any():
         raise ValueError(

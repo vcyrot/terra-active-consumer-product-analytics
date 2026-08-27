@@ -11,6 +11,11 @@ from generate_products import (
     save_products,
     validate_products,
 )
+from generate_product_variants import (
+    generate_product_variants,
+    save_product_variants,
+    validate_product_variants,
+)
 
 
 def main() -> None:
@@ -43,7 +48,7 @@ def main() -> None:
         f"✓ Saved to: {locations_path}"
     )
     
-        # ---------------------------------------------------------
+    # ---------------------------------------------------------
     # Products
     # ---------------------------------------------------------
 
@@ -68,6 +73,39 @@ def main() -> None:
 
     print(
         f"✓ Saved to: {products_path}"
+    )
+    
+    # ---------------------------------------------------------
+    # Product variants
+    # ---------------------------------------------------------
+
+    print()
+    print("Generating product variants...")
+
+    product_variants = (
+        generate_product_variants(
+            products,
+            config,
+        )
+    )
+
+    validate_product_variants(
+        product_variants,
+        products,
+    )
+
+    variants_path = save_product_variants(
+        product_variants,
+        config.raw_data_dir,
+    )
+
+    print(
+        f"✓ Generated "
+        f"{len(product_variants):,} product variants"
+    )
+
+    print(
+        f"✓ Saved to: {variants_path}"
     )
 
 
