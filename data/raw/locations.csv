@@ -1,0 +1,15 @@
+location_id,city,country,country_code,latitude,longitude,region,market_size,event_hub
+LOC001,London,United Kingdom,GB,51.5074,-0.1278,Northern Europe,Large,True
+LOC002,Manchester,United Kingdom,GB,53.4808,-2.2426,Northern Europe,Medium,True
+LOC003,Edinburgh,United Kingdom,GB,55.9533,-3.1883,Northern Europe,Medium,True
+LOC004,Paris,France,FR,48.8566,2.3522,Western Europe,Large,True
+LOC005,Lyon,France,FR,45.764,4.8357,Western Europe,Medium,True
+LOC006,Annecy,France,FR,45.8992,6.1294,Western Europe,Small,True
+LOC007,Berlin,Germany,DE,52.52,13.405,Central Europe,Large,True
+LOC008,Munich,Germany,DE,48.1351,11.582,Central Europe,Large,True
+LOC009,Amsterdam,Netherlands,NL,52.3676,4.9041,Western Europe,Medium,True
+LOC010,Rotterdam,Netherlands,NL,51.9244,4.4777,Western Europe,Small,False
+LOC011,Barcelona,Spain,ES,41.3874,2.1686,Southern Europe,Medium,True
+LOC012,Madrid,Spain,ES,40.4168,-3.7038,Southern Europe,Medium,True
+LOC013,Milan,Italy,IT,45.4642,9.19,Southern Europe,Medium,True
+LOC014,Zurich,Switzerland,CH,47.3769,8.5417,Central Europe,Small,True
