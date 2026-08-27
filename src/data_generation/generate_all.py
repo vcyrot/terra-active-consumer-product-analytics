@@ -16,6 +16,11 @@ from generate_product_variants import (
     save_product_variants,
     validate_product_variants,
 )
+from generate_customers import (
+    generate_customers,
+    save_customers,
+    validate_customers,
+)
 
 
 def main() -> None:
@@ -106,6 +111,37 @@ def main() -> None:
 
     print(
         f"✓ Saved to: {variants_path}"
+    )
+    
+        # ---------------------------------------------------------
+    # Customers
+    # ---------------------------------------------------------
+
+    print()
+    print("Generating customers...")
+
+    customers = generate_customers(
+        locations,
+        config,
+    )
+
+    validate_customers(
+        customers,
+        locations,
+        config,
+    )
+
+    customers_path = save_customers(
+        customers,
+        config.raw_data_dir,
+    )
+
+    print(
+        f"✓ Generated {len(customers):,} customers"
+    )
+
+    print(
+        f"✓ Saved to: {customers_path}"
     )
 
 

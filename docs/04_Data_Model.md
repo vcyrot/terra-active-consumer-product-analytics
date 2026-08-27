@@ -126,24 +126,26 @@ erDiagram
 
 ### Grain
 
-**One row per customer.**
+**One row per unique Terra Active customer account.**
 
-This table contains relatively stable customer characteristics. Behavioural metrics such as CLV, number of purchases or event attendance should be calculated from transactional tables rather than stored here.
+The table contains relatively stable customer attributes known at account level. Transactional behaviour such as purchases, returns, Club membership, event attendance and digital activity is stored in separate tables.
 
-| Column              | Type    | Description                                       |
-| ------------------- | ------- | ------------------------------------------------- |
-| `customer_id`       | STRING  | Unique customer identifier                        |
-| `signup_date`       | DATE    | Date customer account was created                 |
-| `birth_year`        | INTEGER | Synthetic year of birth                           |
-| `gender`            | STRING  | Customer gender category                          |
-| `country`           | STRING  | Country of residence                              |
-| `city`              | STRING  | City of residence                                 |
-| `preferred_sport`   | STRING  | Primary activity preference                       |
-| `customer_segment`  | STRING  | Initial behavioural/persona segment               |
-| `preferred_channel` | STRING  | Preferred shopping or engagement channel          |
-| `marketing_consent` | BOOLEAN | Whether customer accepts marketing communications |
+| Column | Type | Description |
+|---|---|---|
+| `customer_id` | STRING | Unique customer identifier |
+| `signup_date` | DATE | Date the customer created a Terra Active account |
+| `location_id` | STRING | Customer's primary Terra Active geographic market |
+| `age_band` | STRING | Broad customer age group |
+| `gender` | STRING | Synthetic customer gender category |
+| `customer_persona` | STRING | Synthetic lifestyle/persona segment |
+| `preferred_sport` | STRING | Primary activity preference |
+| `marketing_consent` | BOOLEAN | Whether the customer accepts marketing communications |
 
-### Example customer segments
+### Relationship
+
+`customers.location_id` → `locations.location_id`
+
+### Example customer persona
 
 * Urban Runner
 * Outdoor Explorer
@@ -151,13 +153,14 @@ This table contains relatively stable customer characteristics. Behavioural metr
 * Everyday Active
 * Performance Athlete
 
-### Important modelling decision
 
-`customer_segment` represents an initial synthetic persona used to influence behavioural probabilities.
+### Modelling Principle
 
-It should **not** guarantee outcomes.
+Customer personas influence preferences probabilistically but do not directly determine commercial outcomes such as purchase frequency, retention or customer lifetime value.
 
-For example, Urban Runners may have a higher probability of purchasing frequently, but some Urban Runners should still become one-time customers.
+Metrics such as CLV, repeat purchasing and engagement are derived later from behavioural tables rather than stored in the customer master.
+
+
 
 ---
 
