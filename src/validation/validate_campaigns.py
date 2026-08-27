@@ -95,9 +95,17 @@ def channel_summary(
                 "campaign_spend",
                 "sum",
             ),
+            avg_spend=(
+                "campaign_spend",
+                "mean",
+            ),
             total_impressions=(
                 "impressions",
                 "sum",
+            ),
+            avg_impressions=(
+                "impressions",
+                "mean",
             ),
             total_clicks=(
                 "clicks",
@@ -111,14 +119,21 @@ def channel_summary(
                 "cost_per_click",
                 "mean",
             ),
+            avg_spend_per_1k_impressions=(
+                "spend_per_1k_impressions",
+                "mean",
+            ),
         )
         .reset_index()
     )
 
     numeric_columns = [
         "total_spend",
+        "avg_spend",
+        "avg_impressions",
         "avg_ctr_pct",
         "avg_cost_per_click",
+        "avg_spend_per_1k_impressions",
     ]
 
     summary[numeric_columns] = (
@@ -243,7 +258,7 @@ def campaigns_by_year(
         result["start_date"].dt.year
     )
 
-    return (
+    summary = (
         result.groupby("campaign_year")
         .agg(
             campaigns_started=(
@@ -256,12 +271,37 @@ def campaigns_by_year(
             ),
         )
         .reset_index()
-        .round(
-            {
-                "total_spend": 2,
-            }
-        )
     )
+
+    summary["campaign_share_pct"] = (
+        summary["campaigns_started"]
+        / len(result)
+        * 100
+    ).round(1)
+
+    summary["total_spend"] = (
+        summary["total_spend"]
+        .round(2)
+    )
+
+    return summary
+
+
+def campaign_type_by_year(
+    df: pd.DataFrame,
+) -> pd.DataFrame:
+    """Show campaign-type mix by year."""
+
+    result = df.copy()
+
+    result["campaign_year"] = (
+        result["start_date"].dt.year
+    )
+
+    return pd.crosstab(
+        result["campaign_year"],
+        result["campaign_type"],
+    ).reset_index()
 
 
 def channel_type_matrix(
@@ -278,7 +318,7 @@ def channel_type_matrix(
 def ctr_summary(
     df: pd.DataFrame,
 ) -> pd.DataFrame:
-    """Summarise click-through-rate behaviour."""
+    """Summarise click-through-rate behaviour by channel."""
 
     return (
         df.groupby("channel")
@@ -299,6 +339,135 @@ def ctr_summary(
         .reset_index()
         .round(2)
     )
+
+
+def efficiency_summary(
+    df: pd.DataFrame,
+) -> pd.DataFrame:
+    """Summarise campaign efficiency metrics by channel."""
+
+    return (
+        df.groupby("channel")
+        .agg(
+            avg_cost_per_click=(
+                "cost_per_click",
+                "mean",
+            ),
+            min_cost_per_click=(
+                "cost_per_click",
+                "min",
+            ),
+            max_cost_per_click=(
+                "cost_per_click",
+                "max",
+            ),
+            avg_spend_per_1k_impressions=(
+                "spend_per_1k_impressions",
+                "mean",
+            ),
+        )
+        .reset_index()
+        .round(2)
+    )
+
+
+def acquisition_campaign_summary(
+    df: pd.DataFrame,
+) -> pd.DataFrame:
+    """Summarise acquisition campaigns by channel."""
+
+    acquisition = df[
+        df["campaign_type"]
+        == "Acquisition"
+    ]
+
+    summary = (
+        acquisition["channel"]
+        .value_counts()
+        .rename_axis("channel")
+        .reset_index(
+            name="acquisition_campaigns"
+        )
+    )
+
+    if acquisition.empty:
+        summary["share_pct"] = 0.0
+        return summary
+
+    summary["share_pct"] = (
+        summary["acquisition_campaigns"]
+        / len(acquisition)
+        * 100
+    ).round(1)
+
+    return summary
+
+
+def acquisition_campaigns_by_year(
+    df: pd.DataFrame,
+) -> pd.DataFrame:
+    """Summarise acquisition campaigns by year."""
+
+    acquisition = df[
+        df["campaign_type"]
+        == "Acquisition"
+    ].copy()
+
+    acquisition["campaign_year"] = (
+        acquisition["start_date"].dt.year
+    )
+
+    return (
+        acquisition.groupby(
+            "campaign_year"
+        )
+        .agg(
+            acquisition_campaigns=(
+                "campaign_id",
+                "count",
+            ),
+            total_acquisition_spend=(
+                "campaign_spend",
+                "sum",
+            ),
+        )
+        .reset_index()
+        .round(
+            {
+                "total_acquisition_spend": 2,
+            }
+        )
+    )
+
+
+def suspicious_campaigns(
+    df: pd.DataFrame,
+) -> pd.DataFrame:
+    """Identify campaigns with clearly suspicious metrics."""
+
+    return df[
+        (df["campaign_spend"] <= 0)
+        | (df["impressions"] <= 0)
+        | (df["clicks"] <= 0)
+        | (df["ctr_pct"] <= 0)
+        | (df["cost_per_click"] <= 0)
+        | (
+            df["spend_per_1k_impressions"]
+            <= 0
+        )
+    ][
+        [
+            "campaign_id",
+            "channel",
+            "campaign_type",
+            "campaign_spend",
+            "impressions",
+            "clicks",
+            "ctr_pct",
+            "cost_per_click",
+            "spend_per_1k_impressions",
+        ]
+    ]
 
 
 def main() -> None:
@@ -373,6 +542,14 @@ def main() -> None:
         .to_string(index=False)
     )
 
+    print("\nCAMPAIGN TYPE BY YEAR")
+    print(
+        campaign_type_by_year(
+            campaigns
+        )
+        .to_string(index=False)
+    )
+
     print("\nCHANNEL × CAMPAIGN TYPE")
     print(
         channel_type_matrix(
@@ -388,6 +565,47 @@ def main() -> None:
         )
         .to_string(index=False)
     )
+
+    print("\nCAMPAIGN EFFICIENCY BY CHANNEL")
+    print(
+        efficiency_summary(
+            campaigns
+        )
+        .to_string(index=False)
+    )
+
+    print("\nACQUISITION CAMPAIGNS BY CHANNEL")
+    print(
+        acquisition_campaign_summary(
+            campaigns
+        )
+        .to_string(index=False)
+    )
+
+    print("\nACQUISITION CAMPAIGNS BY YEAR")
+    print(
+        acquisition_campaigns_by_year(
+            campaigns
+        )
+        .to_string(index=False)
+    )
+
+    suspicious = suspicious_campaigns(
+        campaigns
+    )
+
+    print("\nSUSPICIOUS CAMPAIGNS")
+    print(
+        f"Suspicious campaigns: "
+        f"{len(suspicious):,}"
+    )
+
+    if not suspicious.empty:
+        print(
+            suspicious.to_string(
+                index=False
+            )
+        )
 
 
 if __name__ == "__main__":

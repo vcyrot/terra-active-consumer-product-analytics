@@ -26,6 +26,11 @@ from generate_campaigns import (
     save_campaigns,
     validate_campaigns,
 )
+from generate_customer_acquisition import (
+    generate_customer_acquisition,
+    save_customer_acquisition,
+    validate_customer_acquisition,
+)
 
 
 def main() -> None:
@@ -118,7 +123,7 @@ def main() -> None:
         f"✓ Saved to: {variants_path}"
     )
     
-        # ---------------------------------------------------------
+    # ---------------------------------------------------------
     # Customers
     # ---------------------------------------------------------
 
@@ -180,6 +185,46 @@ def main() -> None:
         f"{campaigns_path}"
     )
 
+    # ---------------------------------------------------------
+    # Customer acquisition
+    # ---------------------------------------------------------
+
+    print()
+    print(
+        "Generating customer acquisition..."
+    )
+
+    customer_acquisition = (
+        generate_customer_acquisition(
+            customers,
+            campaigns,
+            config,
+        )
+    )
+
+    validate_customer_acquisition(
+        customer_acquisition,
+        customers,
+        campaigns,
+    )
+
+    acquisition_path = (
+        save_customer_acquisition(
+            customer_acquisition,
+            config.raw_data_dir,
+        )
+    )
+
+    print(
+        f"✓ Generated "
+        f"{len(customer_acquisition):,} "
+        f"customer acquisition records"
+    )
+
+    print(
+        f"✓ Saved to: "
+        f"{acquisition_path}"
+    )
 
 if __name__ == "__main__":
     main()

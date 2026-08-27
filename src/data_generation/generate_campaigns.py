@@ -8,12 +8,66 @@ import numpy as np
 import pandas as pd
 
 from campaign_parameters import (
-    CAMPAIGN_CHANNELS,
+    CAMPAIGN_CHANNELS_BY_TYPE,
+    CAMPAIGN_CHANNEL_WEIGHTS_BY_TYPE,
+    CAMPAIGN_CTR_RANGES,
+    CAMPAIGN_DURATION_RANGES,
+    CAMPAIGN_IMPRESSION_RANGES,
+    CAMPAIGN_SPEND_RANGES,
     CAMPAIGN_TYPES,
     CAMPAIGN_TYPE_WEIGHTS,
+    CAMPAIGN_YEAR_WEIGHTS,
     TARGET_SEGMENTS,
+    TARGET_SEGMENT_WEIGHTS,
 )
 from config import GenerationConfig
+
+def generate_campaign_start_date(
+    rng: np.random.Generator,
+    config: GenerationConfig,
+) -> pd.Timestamp:
+    """Generate a campaign start date consistent with business growth."""
+
+    years = np.array(
+        list(CAMPAIGN_YEAR_WEIGHTS.keys())
+    )
+
+    year_probabilities = np.array(
+        list(CAMPAIGN_YEAR_WEIGHTS.values())
+    )
+
+    selected_year = int(
+        rng.choice(
+            years,
+            p=year_probabilities,
+        )
+    )
+
+    year_start = max(
+        config.start_date,
+        pd.Timestamp(
+            f"{selected_year}-01-01"
+        ),
+    )
+
+    year_end = min(
+        config.end_date,
+        pd.Timestamp(
+            f"{selected_year}-12-31"
+        ),
+    )
+
+    eligible_dates = pd.date_range(
+        year_start,
+        year_end,
+        freq="D",
+    )
+
+    return pd.Timestamp(
+        rng.choice(
+            eligible_dates
+        )
+    )
 
 def generate_campaigns(
     config: GenerationConfig,
@@ -26,11 +80,6 @@ def generate_campaigns(
 
     records: list[dict[str, object]] = []
 
-    available_dates = pd.date_range(
-        config.start_date,
-        config.end_date,
-        freq="D",
-    )
 
     for index in range(
         config.number_of_campaigns
@@ -41,18 +90,38 @@ def generate_campaigns(
             p=CAMPAIGN_TYPE_WEIGHTS,
         )
 
-        channel = rng.choice(
-            CAMPAIGN_CHANNELS
+        channels = CAMPAIGN_CHANNELS_BY_TYPE[campaign_type]
+
+        channel_weights = (
+            CAMPAIGN_CHANNEL_WEIGHTS_BY_TYPE[
+                campaign_type
+            ]
         )
 
-        start_date = pd.Timestamp(
-            rng.choice(available_dates)
+        channel = str(
+            rng.choice(
+                channels,
+                p=channel_weights,
+            )
+        )
+
+        start_date = (
+            generate_campaign_start_date(
+                rng,
+                config,
+            )
+        )
+
+        min_duration, max_duration = (
+            CAMPAIGN_DURATION_RANGES[
+                campaign_type
+            ]
         )
 
         duration_days = int(
             rng.integers(
-                7,
-                46,
+                min_duration,
+                max_duration + 1,
             )
         )
 
@@ -64,28 +133,49 @@ def generate_campaigns(
             config.end_date,
         )
 
-        target_segment = rng.choice(
-            TARGET_SEGMENTS
+        target_segment = str(
+            rng.choice(
+                TARGET_SEGMENTS,
+                p=TARGET_SEGMENT_WEIGHTS,
+            )
+        )
+
+        min_spend, max_spend = (
+            CAMPAIGN_SPEND_RANGES[
+                channel
+            ]
         )
 
         campaign_spend = round(
             rng.uniform(
-                5_000,
-                80_000,
+                min_spend,
+                max_spend,
             ),
             2,
         )
 
+        min_impressions, max_impressions = (
+            CAMPAIGN_IMPRESSION_RANGES[
+                channel
+            ]
+        )
+
         impressions = int(
             rng.integers(
-                50_000,
-                2_000_000,
+                min_impressions,
+                max_impressions + 1,
             )
         )
 
+        min_ctr, max_ctr = (
+            CAMPAIGN_CTR_RANGES[
+                channel
+            ]
+        )
+
         click_through_rate = rng.uniform(
-            0.005,
-            0.045,
+            min_ctr,
+            max_ctr,
         )
 
         clicks = int(
