@@ -52,37 +52,38 @@ The model is divided into six analytical domains.
 
 ### Customer & Commerce
 
-* `customers`
-* `products`
-* `orders`
-* `order_items`
-* `returns`
+- `customers`
+- `products`
+- `product_variants`
+- `orders`
+- `order_items`
+- `returns`
 
 ### Digital Product
 
-* `digital_events`
+- `digital_events`
 
 ### Community & Loyalty
 
-* `club_memberships`
-* `community_events`
-* `event_registrations`
-* `challenges`
-* `challenge_participation`
+- `club_memberships`
+- `community_events`
+- `event_registrations`
+- `challenges`
+- `challenge_participation`
 
 ### Marketing & Acquisition
 
-* `campaigns`
-* `customer_acquisition`
+- `campaigns`
+- `customer_acquisition`
 
 ### Operations
 
-* `locations`
-* `inventory_daily`
+- `locations`
+- `inventory_daily`
 
 ### External Data
 
-* `weather_daily`
+- `weather_daily`
 
 ---
 
@@ -90,7 +91,6 @@ The model is divided into six analytical domains.
 
 ```mermaid
 erDiagram
-
     CUSTOMERS ||--o{ ORDERS : places
     CUSTOMERS ||--o{ DIGITAL_EVENTS : generates
     CUSTOMERS ||--o| CLUB_MEMBERSHIPS : joins
@@ -98,10 +98,13 @@ erDiagram
     CUSTOMERS ||--o{ CHALLENGE_PARTICIPATION : joins
     CUSTOMERS ||--o| CUSTOMER_ACQUISITION : acquired_through
 
-    PRODUCTS ||--o{ ORDER_ITEMS : purchased_as
-    PRODUCTS ||--o{ RETURNS : returned_as
+    PRODUCTS ||--o{ PRODUCT_VARIANTS : has
+
+    PRODUCT_VARIANTS ||--o{ ORDER_ITEMS : purchased_as
+    PRODUCT_VARIANTS ||--o{ RETURNS : returned_as
+    PRODUCT_VARIANTS ||--o{ INVENTORY_DAILY : stocked_as
+
     PRODUCTS ||--o{ DIGITAL_EVENTS : interacted_with
-    PRODUCTS ||--o{ INVENTORY_DAILY : stocked_as
 
     ORDERS ||--|{ ORDER_ITEMS : contains
     ORDERS ||--o{ RETURNS : generates
@@ -147,11 +150,11 @@ The table contains relatively stable customer attributes known at account level.
 
 ### Example customer persona
 
-* Urban Runner
+* Active Lifestyle
 * Outdoor Explorer
-* Fitness Enthusiast
-* Everyday Active
 * Performance Athlete
+* Studio Regular
+* Urban Runner
 
 
 ### Modelling Principle
@@ -159,8 +162,6 @@ The table contains relatively stable customer attributes known at account level.
 Customer personas influence preferences probabilistically but do not directly determine commercial outcomes such as purchase frequency, retention or customer lifetime value.
 
 Metrics such as CLV, repeat purchasing and engagement are derived later from behavioural tables rather than stored in the customer master.
-
-
 
 ---
 
@@ -283,40 +284,49 @@ This avoids inconsistencies between:
 
 ### Grain
 
-**One row per product contained in an order.**
+**One row per SKU contained in an order.**
 
-This is one of the most important tables in the project.
+Each order item represents the exact sellable product variant purchased by the customer.
 
-| Column               | Type    | Description                  |
-| -------------------- | ------- | ---------------------------- |
-| `order_item_id`      | STRING  | Unique order-line identifier |
-| `order_id`           | STRING  | Parent order                 |
-| `product_id`         | STRING  | Purchased product            |
-| `quantity`           | INTEGER | Units purchased              |
-| `unit_list_price`    | DECIMAL | Standard price at purchase   |
-| `discount_amount`    | DECIMAL | Discount applied to the line |
-| `unit_selling_price` | DECIMAL | Actual price paid per unit   |
-| `unit_cost`          | DECIMAL | Cost of goods sold per unit  |
+| Column | Type | Description |
+|---|---|---|
+| `order_item_id` | STRING | Unique order-line identifier |
+| `order_id` | STRING | Parent order |
+| `sku_id` | STRING | Purchased colour-size SKU |
+| `quantity` | INTEGER | Units purchased |
+| `unit_list_price` | DECIMAL | Standard price at purchase |
+| `discount_amount` | DECIMAL | Discount applied to the line |
+| `unit_selling_price` | DECIMAL | Actual price paid per unit |
+| `unit_cost` | DECIMAL | Cost of goods sold per unit |
 
 ### Foreign Keys
 
-`order_id → orders.order_id`
+- `order_id` → `orders.order_id`
+- `sku_id` → `product_variants.sku_id`
 
-`product_id → products.product_id`
+### Derived Product Context
 
-### Derived metrics
+Product-level information such as category, subcategory, colour, size and technical positioning can be obtained through:
+
+`order_items.sku_id`
+→ `product_variants.product_id`
+→ `products.product_id`
+
+### Derived Metrics
 
 From this table we can calculate:
 
-* Gross sales
-* Net revenue
-* COGS
-* Gross profit
-* Gross margin
-* Units per transaction
-* Product/category revenue
-* Accessory attachment
-* Basket composition
+- Gross sales
+- Net revenue
+- COGS
+- Gross profit
+- Gross margin
+- Units per transaction
+- Product/category revenue
+- Accessory attachment
+- Basket composition
+- Size-level demand
+- Colour-level demand
 
 ---
 
@@ -326,37 +336,45 @@ From this table we can calculate:
 
 **One row per returned order item or return event.**
 
-| Column             | Type    | Description               |
-| ------------------ | ------- | ------------------------- |
-| `return_id`        | STRING  | Unique return identifier  |
-| `order_item_id`    | STRING  | Original purchased item   |
-| `order_id`         | STRING  | Original order            |
-| `product_id`       | STRING  | Returned product          |
-| `return_date`      | DATE    | Date returned             |
-| `return_reason`    | STRING  | Reason for return         |
-| `refund_amount`    | DECIMAL | Amount refunded           |
-| `return_condition` | STRING  | Resellable, damaged, etc. |
+| Column | Type | Description |
+|---|---|---|
+| `return_id` | STRING | Unique return identifier |
+| `order_item_id` | STRING | Original purchased order line |
+| `order_id` | STRING | Original order |
+| `sku_id` | STRING | Returned colour-size SKU |
+| `return_date` | DATE | Date returned |
+| `return_reason` | STRING | Reason for return |
+| `refund_amount` | DECIMAL | Amount refunded |
+| `return_condition` | STRING | Resellable, damaged, etc. |
 
-### Example return reasons
+### Foreign Keys
 
-* Size / fit
-* Changed mind
-* Product appearance
-* Quality issue
-* Damaged
-* Incorrect item
-* Late delivery
+- `order_item_id` → `order_items.order_item_id`
+- `order_id` → `orders.order_id`
+- `sku_id` → `product_variants.sku_id`
 
-### Analytical use
+### Example Return Reasons
+
+- Size / fit
+- Changed mind
+- Product appearance
+- Quality issue
+- Damaged
+- Incorrect item
+- Late delivery
+
+### Analytical Use
 
 Supports:
 
-* Unit return rate
-* Return value rate
-* Product-level return analysis
-* Customer return behaviour
-* Impact of discounting on returns
-* Product attribute analysis
+- Unit return rate
+- Return value rate
+- SKU-level return analysis
+- Size-related returns
+- Colour-related returns
+- Product-level return analysis through the parent style
+- Customer return behaviour
+- Impact of discounting on returns
 
 ---
 
@@ -381,6 +399,7 @@ This is the core Product Analytics event table.
 | `platform`           | STRING    | Website, iOS, Android                                 |
 | `device_type`        | STRING    | Mobile, desktop, tablet                               |
 | `product_id`         | STRING    | Product involved, where applicable                    |
+| `sku_id`             | STRING    | Specific colour-size SKU involved, where applicable   |
 | `event_id_reference` | STRING    | Community event involved, where applicable            |
 | `campaign_id`        | STRING    | Marketing campaign attribution where applicable       |
 | `page_type`          | STRING    | Product, checkout, home, events, etc.                 |
@@ -584,6 +603,10 @@ Supports:
 | `impressions`    | INTEGER | Advertising impressions                       |
 | `clicks`         | INTEGER | Campaign clicks                               |
 
+### Modelling Principle
+
+Campaigns are generated before `customer_acquisition` so that paid, influencer and event-driven acquisitions can reference valid campaign IDs and preserve referential integrity.
+
 ### Analytical use
 
 Supports:
@@ -602,20 +625,45 @@ Supports:
 
 **One row per acquired customer.**
 
-| Column                | Type   | Description                           |
-| --------------------- | ------ | ------------------------------------- |
-| `customer_id`         | STRING | Acquired customer                     |
-| `acquisition_date`    | DATE   | Acquisition date                      |
-| `acquisition_channel` | STRING | Primary acquisition channel           |
-| `campaign_id`         | STRING | Campaign responsible where applicable |
-| `first_touch_channel` | STRING | First known marketing interaction     |
-| `last_touch_channel`  | STRING | Last interaction before conversion    |
+This table records how each customer initially entered the Terra Active ecosystem.
 
-### Why separate this from `customers`?
+| Column | Type | Description |
+|---|---|---|
+| `customer_id` | STRING | Acquired customer |
+| `acquisition_date` | DATE | Date the customer entered the Terra Active ecosystem |
+| `acquisition_channel` | STRING | Primary acquisition channel |
+| `campaign_id` | STRING | Campaign associated with acquisition, where applicable |
+| `first_touch_channel` | STRING | First known marketing interaction |
+| `last_touch_channel` | STRING | Final known interaction before account creation |
+| `acquisition_device` | STRING | Device used during acquisition |
+| `acquisition_platform` | STRING | Website, iOS or Android |
+| `referral_flag` | BOOLEAN | Whether acquisition occurred through customer referral |
 
-Acquisition is a business process rather than an intrinsic customer attribute.
+### Relationships
 
-Separating it allows the project to later explore different attribution methodologies.
+- `customer_id` → `customers.customer_id`
+- `campaign_id` → `campaigns.campaign_id` where applicable
+
+### Modelling Principles
+
+- Each customer has at most one primary acquisition record.
+- For the initial synthetic version, `acquisition_date` is aligned with `customers.signup_date`.
+- Acquisition channel remains fixed after initial acquisition.
+- Later marketing interactions are represented separately.
+- Channel may influence downstream behaviour probabilistically but does not directly determine retention or CLV.
+- `referral_flag` is derived from `acquisition_channel` rather than generated independently.
+
+### Analytical Use
+
+Supports:
+
+- Acquisition volume by channel
+- Customer acquisition cost
+- CLV by acquisition source
+- Retention by acquisition source
+- First-touch vs last-touch attribution
+- Referral effectiveness
+- Device/platform differences during acquisition
 
 ---
 
@@ -656,42 +704,17 @@ without repeatedly storing inconsistent city names.
 
 ### Grain
 
-**One row per product-location-date combination.**
+**One row per SKU-location-date combination.**
 
-This grain is essential.
+Inventory is managed at sellable SKU level because stock availability can differ by colour and size even when the parent product style remains available.
 
 For example:
 
 ```text
-Product P001
+SKU000342
 London
-2026-05-12
+2025-05-12
 ```
-
-represents one inventory observation.
-
-| Column                    | Type    | Description                          |
-| ------------------------- | ------- | ------------------------------------ |
-| `inventory_date`          | DATE    | Observation date                     |
-| `product_id`              | STRING  | Product                              |
-| `location_id`             | STRING  | Location                             |
-| `opening_stock`           | INTEGER | Stock at beginning of day            |
-| `units_received`          | INTEGER | New stock received                   |
-| `units_sold`              | INTEGER | Units sold                           |
-| `units_returned_to_stock` | INTEGER | Returned units resellable            |
-| `closing_stock`           | INTEGER | End-of-day stock                     |
-| `stockout_flag`           | BOOLEAN | Whether item was unavailable         |
-| `reorder_quantity`        | INTEGER | Restocking quantity where applicable |
-
-### Consistency rule
-
-Closing inventory should approximately satisfy:
-
-```text
-Closing Stock = Opening Stock + Units Received + Units Returned to Stock − Units Sold
-```
-
-This becomes a useful **data-quality validation rule** later.
 
 ---
 
@@ -738,33 +761,33 @@ These belong in the **feature-engineering layer**, not necessarily in the raw we
 
 # 12. Primary and Foreign Key Summary
 
-| Table                     | Primary Key        | Important Foreign Keys                     |
-| ------------------------- | ------------------ | ------------------------------------------ |
-| `customers`               | `customer_id`      | —                                          |
-| `products`                | `product_id`       | —                                          |
-| `orders`                  | `order_id`         | `customer_id`                              |
-| `order_items`             | `order_item_id`    | `order_id`, `product_id`                   |
-| `returns`                 | `return_id`        | `order_item_id`, `order_id`, `product_id`  |
-| `digital_events`          | `event_id`         | `customer_id`, `product_id`, `campaign_id` |
-| `club_memberships`        | `membership_id`    | `customer_id`                              |
-| `community_events`        | `event_id`         | `location_id`                              |
-| `event_registrations`     | `registration_id`  | `event_id`, `customer_id`                  |
-| `challenges`              | `challenge_id`     | —                                          |
-| `challenge_participation` | `participation_id` | `challenge_id`, `customer_id`              |
-| `campaigns`               | `campaign_id`      | —                                          |
-| `customer_acquisition`    | `customer_id`      | `campaign_id`                              |
-| `locations`               | `location_id`      | —                                          |
-| `inventory_daily`         | Composite          | `product_id`, `location_id`                |
-| `weather_daily`           | Composite          | `location_id`                              |
+| Table | Primary Key | Important Foreign Keys |
+|---|---|---|
+| `customers` | `customer_id` | `location_id` |
+| `products` | `product_id` | — |
+| `product_variants` | `sku_id` | `product_id` |
+| `orders` | `order_id` | `customer_id` |
+| `order_items` | `order_item_id` | `order_id`, `sku_id` |
+| `returns` | `return_id` | `order_item_id`, `order_id`, `sku_id` |
+| `digital_events` | `event_id` | `customer_id`, `product_id`, `sku_id`, `campaign_id` |
+| `club_memberships` | `membership_id` | `customer_id` |
+| `community_events` | `event_id` | `location_id` |
+| `event_registrations` | `registration_id` | `event_id`, `customer_id` |
+| `challenges` | `challenge_id` | — |
+| `challenge_participation` | `participation_id` | `challenge_id`, `customer_id` |
+| `campaigns` | `campaign_id` | — |
+| `customer_acquisition` | `customer_id` | `campaign_id` |
+| `locations` | `location_id` | — |
+| `inventory_daily` | Composite | `sku_id`, `location_id` |
+| `weather_daily` | Composite | `location_id` |
 
-### Composite keys
+### Composite Keys
 
 For `inventory_daily`:
 
 ```text
-(product_id, location_id, inventory_date)
+(sku_id, location_id, inventory_date)
 ```
-
 should be unique.
 
 For `weather_daily`:
@@ -772,7 +795,6 @@ For `weather_daily`:
 ```text
 (location_id, weather_date)
 ```
-
 should be unique.
 
 ---
@@ -848,17 +870,17 @@ This is intentional and reflects an event-driven analytical environment.
 | What distinguishes repeat customers from one-time customers?       | `customers`, `orders`, `order_items`                                                                          |
 | Which customer segments generate the highest CLV?                  | `customers`, `orders`, `order_items`, `returns`                                                               |
 | What behaviours are associated with retention?                     | `customers`, `orders`, `digital_events`, `club_memberships`, `event_registrations`, `challenge_participation` |
-| Which products drive revenue vs profitability?                     | `products`, `orders`, `order_items`, `returns`                                                                |
-| Where are the strongest accessory cross-selling opportunities?     | `orders`, `order_items`, `products`                                                                           |
-| What drives product returns?                                       | `returns`, `order_items`, `products`, `customers`                                                             |
+| Which products drive revenue vs profitability?                     | `products`, `product_variants`, `orders`, `order_items`, `returns`                                            |
+| Where are the strongest accessory cross-selling opportunities?     | `orders`, `order_items`, `product_variants`, `products`                                                       |
+| What drives product returns?                                       | `returns`, `order_items`, `product_variants`, `products`, `customers`                                         |
 | Where does the digital purchase funnel lose customers?             | `digital_events`                                                                                              |
 | Which app behaviours are associated with conversion and retention? | `digital_events`, `orders`, `customers`                                                                       |
-| Is event participation associated with subsequent spending?        | `event_registrations`, `orders`, `customers`                                                                  |
-| Which cities/event types should Terra Active invest in?            | `community_events`, `event_registrations`, `locations`, `customers`                                           |
-| Which acquisition channels generate the highest-value customers?   | `customer_acquisition`, `campaigns`, `orders`, `order_items`                                                  |
-| How does weather affect product demand?                            | `weather_daily`, `inventory_daily`, `order_items`, `products`, `locations`                                    |
-| Can weather improve inventory planning?                            | `weather_daily`, `inventory_daily`, `products`                                                                |
-| What is the impact of stockouts?                                   | `inventory_daily`, `orders`, `order_items`, `digital_events`                                                  |
+| Is event participation associated with subsequent spending?        | `event_registrations`, `orders`, `order_items`, `customers`                                                   |
+| Which cities/event types should Terra Active invest in?            | `community_events`, `event_registrations`, `locations`, `customers`, `orders`                                 |
+| Which acquisition channels generate the highest-value customers?   | `customer_acquisition`, `campaigns`, `customers`, `orders`, `order_items`, `returns`                           |
+| How does weather affect product demand?                             | `weather_daily`, `inventory_daily`, `order_items`, `product_variants`, `products`, `locations`                 |
+| Can weather improve inventory planning?                             | `weather_daily`, `inventory_daily`, `product_variants`, `products`, `locations`                               |
+| What is the impact of stockouts?                                   | `inventory_daily`, `product_variants`, `products`, `orders`, `order_items`, `digital_events`                   |
 
 ---
 
@@ -964,9 +986,17 @@ The project should eventually validate at least the following:
 
 ### Referential Integrity
 
-* Every `order.customer_id` exists in `customers`
-* Every `order_item.order_id` exists in `orders`
-* Every `order_item.product_id` exists in `products`
+* Every `customers.location_id` exists in `locations`
+* Every `product_variants.product_id` exists in `products`
+* Every `orders.customer_id` exists in `customers`
+* Every `order_items.order_id` exists in `orders`
+* Every `order_items.sku_id` exists in `product_variants`
+* Every `returns.order_item_id` exists in `order_items`
+* Every `returns.sku_id` exists in `product_variants`
+* Every `inventory_daily.sku_id` exists in `product_variants`
+* Every `inventory_daily.location_id` exists in `locations`
+* Every `customer_acquisition.customer_id` exists in `customers`
+* Every non-null `customer_acquisition.campaign_id` exists in `campaigns`
 * Every registration links to a valid customer and event
 
 ### Transaction Logic
@@ -997,6 +1027,13 @@ The project should eventually validate at least the following:
 
 * First purchase cannot occur before signup
 * Marketing acquisition should not occur after the customer's first purchase
+
+### Acquisition Logic
+
+* Each customer has at most one acquisition record
+* `acquisition_date` cannot occur after `signup_date` in the initial model
+* `referral_flag = TRUE` only when `acquisition_channel = Referral`
+* Campaign-linked acquisitions must occur during the associated campaign period
 
 ---
 
@@ -1034,21 +1071,35 @@ The final Terra Active ecosystem remains fictional and should not be presented a
 
 # 19. Current Status
 
-**Status: Initial Data Model Complete**
+**Status: Reference and Customer Master Data Generation In Progress**
 
-### Next steps
+### Completed
 
-1. Review table scope and remove any unnecessary variables.
-2. Finalise primary and foreign key relationships.
-3. Define the synthetic-data generation strategy.
-4. Decide which behavioural relationships should exist in the synthetic population.
-5. Select external APIs and public reference datasets.
-6. Create the physical database schema.
-7. Begin generating the first tables:
+- Project definition
+- Business questions
+- KPI framework
+- Initial relational data model
+- Synthetic data strategy
+- Location generation and validation
+- Product-style generation and validation
+- Product-variant / SKU generation and validation
+- Customer master generation and validation
 
-   * `locations`
-   * `products`
-   * `customers`
-8. Validate generated distributions before generating transactional behaviour.
+### Current Phase
 
-The next phase will focus on **how Terra Active's synthetic population should behave**, rather than generating independent random values for each table.
+The project is now moving from reference/master data into behavioural and marketing data generation.
+
+### Next Steps
+
+1. Generate `campaigns`
+2. Validate campaign structure and timing
+3. Generate `customer_acquisition`
+4. Validate acquisition channel, campaign and device distributions
+5. Generate Terra Active Club memberships
+6. Generate orders and order items
+7. Generate returns
+8. Generate digital behavioural events
+9. Generate community events and registrations
+10. Integrate weather and inventory data
+
+Transactional and behavioural generation should continue to preserve the core principle that relationships are probabilistic rather than deterministic.

@@ -34,6 +34,8 @@ Detailed documentation is available in the `docs/` directory.
 
 ## AI Assistance
 
-Generative AI was used as a development aid for brainstorming, code scaffolding and documentation review. All business assumptions, data-generation logic, analytical decisions and outputs were reviewed, adapted and validated by the author.
+Generative AI was used as a supporting tool during the initial development of the synthetic data generation process, primarily for brainstorming, code scaffolding, and reviewing documentation.
 
-The synthetic dataset itself is generated reproducibly through the Python scripts included in this repository.
+The project itself—including the business requirements, data model, analytical approach, implementation, and interpretation of results—was developed by the author. All AI-assisted material was reviewed, adapted, tested, and validated before being incorporated into the project.
+
+The synthetic dataset is generated reproducibly using the Python scripts included in this repository.
