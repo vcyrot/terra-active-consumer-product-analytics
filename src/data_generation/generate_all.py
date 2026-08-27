@@ -6,6 +6,11 @@ from generate_locations import (
     save_locations,
     validate_locations,
 )
+from generate_products import (
+    generate_products,
+    save_products,
+    validate_products,
+)
 
 
 def main() -> None:
@@ -36,6 +41,33 @@ def main() -> None:
     )
     print(
         f"✓ Saved to: {locations_path}"
+    )
+    
+        # ---------------------------------------------------------
+    # Products
+    # ---------------------------------------------------------
+
+    print()
+    print("Generating products...")
+
+    products = generate_products(config)
+
+    validate_products(
+        products,
+        config,
+    )
+
+    products_path = save_products(
+        products,
+        config.raw_data_dir,
+    )
+
+    print(
+        f"✓ Generated {len(products):,} products"
+    )
+
+    print(
+        f"✓ Saved to: {products_path}"
     )
 
 

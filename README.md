@@ -30,3 +30,10 @@ Detailed documentation is available in the `docs/` directory.
 - [ ] SQL analytics
 - [ ] Python analysis
 - [ ] Power BI dashboard
+
+
+## AI Assistance
+
+Generative AI was used as a development aid for brainstorming, code scaffolding and documentation review. All business assumptions, data-generation logic, analytical decisions and outputs were reviewed, adapted and validated by the author.
+
+The synthetic dataset itself is generated reproducibly through the Python scripts included in this repository.
