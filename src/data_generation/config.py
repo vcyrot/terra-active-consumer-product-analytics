@@ -20,6 +20,7 @@ class GenerationConfig:
     # Dataset scale
     number_of_customers: int = 100_000
     number_of_products: int = 200
+    number_of_campaigns: int = 75
 
     # Repository paths
     project_root: Path = Path(__file__).resolve().parents[2]

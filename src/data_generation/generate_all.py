@@ -21,6 +21,11 @@ from generate_customers import (
     save_customers,
     validate_customers,
 )
+from generate_campaigns import (
+    generate_campaigns,
+    save_campaigns,
+    validate_campaigns,
+)
 
 
 def main() -> None:
@@ -142,6 +147,37 @@ def main() -> None:
 
     print(
         f"✓ Saved to: {customers_path}"
+    )
+    
+    # ---------------------------------------------------------
+    # Campaigns
+    # ---------------------------------------------------------
+
+    print()
+    print("Generating campaigns...")
+
+    campaigns = generate_campaigns(
+        config
+    )
+
+    validate_campaigns(
+        campaigns,
+        config,
+    )
+
+    campaigns_path = save_campaigns(
+        campaigns,
+        config.raw_data_dir,
+    )
+
+    print(
+        f"✓ Generated "
+        f"{len(campaigns):,} campaigns"
+    )
+
+    print(
+        f"✓ Saved to: "
+        f"{campaigns_path}"
     )
 
 

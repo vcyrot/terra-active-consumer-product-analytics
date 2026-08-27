@@ -1,0 +1,76 @@
+campaign_id,campaign_name,channel,campaign_type,start_date,end_date,target_segment,campaign_spend,impressions,clicks
+CAMP0001,Terra Product Launch 001,Email,Product Launch,2024-08-02,2024-08-29,Outdoor Explorer,65876.96,1147124,41495
+CAMP0002,Terra Event Promotion 002,Organic Social,Event Promotion,2025-04-30,2025-05-30,Urban Runner,55345.73,846727,25485
+CAMP0003,Terra Event Promotion 003,Paid Search,Event Promotion,2025-03-04,2025-04-16,Studio Regular,77304.94,1000488,37462
+CAMP0004,Terra Retention 004,Influencer,Retention,2024-02-01,2024-03-03,Performance Athlete,9116.55,141477,1385
+CAMP0005,Terra Event Promotion 005,Influencer,Event Promotion,2023-02-18,2023-03-10,Outdoor Explorer,36490.66,1857858,20728
+CAMP0006,Terra Acquisition 006,Influencer,Acquisition,2023-07-17,2023-07-28,Urban Runner,18093.2,1566730,52311
+CAMP0007,Terra Event Promotion 007,Influencer,Event Promotion,2024-07-27,2024-09-06,Performance Athlete,32999.47,387881,9625
+CAMP0008,Terra Acquisition 008,Paid Search,Acquisition,2023-02-04,2023-02-15,Urban Runner,31882.72,1985361,64897
+CAMP0009,Terra Acquisition 009,Email,Acquisition,2023-01-15,2023-02-06,Performance Athlete,59248.75,1892375,71411
+CAMP0010,Terra Acquisition 010,Email,Acquisition,2025-11-23,2025-12-17,Outdoor Explorer,70571.67,781130,13778
+CAMP0011,Terra Acquisition 011,Influencer,Acquisition,2025-04-02,2025-05-13,Studio Regular,44768.53,1582391,32155
+CAMP0012,Terra Retention 012,Paid Search,Retention,2024-07-17,2024-07-27,Active Lifestyle,55761.82,1633562,15624
+CAMP0013,Terra Event Promotion 013,Paid Search,Event Promotion,2024-07-03,2024-07-15,Active Lifestyle,51711.49,658935,5302
+CAMP0014,Terra Acquisition 014,Paid Social,Acquisition,2024-11-06,2024-11-20,All Customers,43623.06,861787,12777
+CAMP0015,Terra Event Promotion 015,Influencer,Event Promotion,2024-02-03,2024-02-16,Studio Regular,56996.64,205755,2341
+CAMP0016,Terra Acquisition 016,Email,Acquisition,2025-08-08,2025-09-16,Studio Regular,43764.79,1425996,59146
+CAMP0017,Terra Acquisition 017,Paid Search,Acquisition,2024-05-05,2024-06-07,Active Lifestyle,17886.28,1359459,41226
+CAMP0018,Terra Acquisition 018,Paid Social,Acquisition,2023-09-19,2023-10-11,All Customers,62772.96,622350,14142
+CAMP0019,Terra Retention 019,Paid Search,Retention,2025-07-10,2025-07-23,Urban Runner,74120.62,1507580,14603
+CAMP0020,Terra Acquisition 020,Organic Social,Acquisition,2023-08-20,2023-09-13,Urban Runner,78461.43,977474,12148
+CAMP0021,Terra Acquisition 021,Email,Acquisition,2025-02-04,2025-02-25,Studio Regular,15384.84,1540142,21747
+CAMP0022,Terra Product Launch 022,Paid Social,Product Launch,2025-11-28,2025-12-12,Urban Runner,42248.57,1468344,11826
+CAMP0023,Terra Product Launch 023,Community Event,Product Launch,2024-10-10,2024-10-25,Studio Regular,21881.08,586312,8004
+CAMP0024,Terra Acquisition 024,Community Event,Acquisition,2025-07-28,2025-08-20,Performance Athlete,63540.21,668456,6234
+CAMP0025,Terra Event Promotion 025,Organic Social,Event Promotion,2024-10-28,2024-11-20,Outdoor Explorer,15750.51,1269791,51961
+CAMP0026,Terra Retention 026,Influencer,Retention,2023-07-30,2023-08-18,Urban Runner,56680.81,1583381,32856
+CAMP0027,Terra Event Promotion 027,Paid Search,Event Promotion,2024-05-31,2024-06-26,Active Lifestyle,32866.43,148273,3403
+CAMP0028,Terra Acquisition 028,Community Event,Acquisition,2023-05-07,2023-06-06,Performance Athlete,50781.48,1871977,68767
+CAMP0029,Terra Retention 029,Influencer,Retention,2025-08-25,2025-10-08,All Customers,51646.32,270750,8067
+CAMP0030,Terra Event Promotion 030,Email,Event Promotion,2023-07-30,2023-09-01,Studio Regular,73470.95,855007,17625
+CAMP0031,Terra Event Promotion 031,Community Event,Event Promotion,2023-11-13,2023-12-15,Active Lifestyle,63278.2,1716904,23272
+CAMP0032,Terra Retention 032,Community Event,Retention,2023-06-27,2023-07-09,Outdoor Explorer,37794.74,1588750,39699
+CAMP0033,Terra Product Launch 033,Organic Social,Product Launch,2024-03-31,2024-05-06,Performance Athlete,31249.45,1377229,55803
+CAMP0034,Terra Acquisition 034,Paid Search,Acquisition,2024-06-13,2024-07-28,Performance Athlete,26467.83,1795116,54152
+CAMP0035,Terra Retention 035,Paid Search,Retention,2023-01-09,2023-01-19,Studio Regular,65195.85,1564708,39573
+CAMP0036,Terra Product Launch 036,Paid Search,Product Launch,2025-03-29,2025-05-10,Outdoor Explorer,11705.98,1939937,11241
+CAMP0037,Terra Product Launch 037,Organic Social,Product Launch,2024-07-01,2024-07-29,Urban Runner,61854.02,1391257,50277
+CAMP0038,Terra Acquisition 038,Paid Social,Acquisition,2024-08-09,2024-09-19,Outdoor Explorer,53520.19,292735,6998
+CAMP0039,Terra Acquisition 039,Community Event,Acquisition,2023-08-20,2023-09-10,Studio Regular,52288.17,150458,5544
+CAMP0040,Terra Retention 040,Email,Retention,2023-02-12,2023-03-29,Active Lifestyle,75678.89,1825750,51429
+CAMP0041,Terra Acquisition 041,Paid Social,Acquisition,2025-12-08,2025-12-19,Urban Runner,17243.8,1881456,84490
+CAMP0042,Terra Product Launch 042,Organic Social,Product Launch,2024-11-15,2024-12-25,All Customers,42241.83,1265111,9114
+CAMP0043,Terra Acquisition 043,Paid Social,Acquisition,2024-05-16,2024-06-13,All Customers,65026.74,292870,10464
+CAMP0044,Terra Product Launch 044,Influencer,Product Launch,2023-01-12,2023-02-11,Performance Athlete,79263.49,627607,6450
+CAMP0045,Terra Product Launch 045,Community Event,Product Launch,2023-10-05,2023-11-11,Active Lifestyle,32489.28,1231101,20928
+CAMP0046,Terra Retention 046,Email,Retention,2025-09-15,2025-09-30,Outdoor Explorer,9971.47,89916,3344
+CAMP0047,Terra Acquisition 047,Paid Search,Acquisition,2023-02-08,2023-03-25,Studio Regular,41268.99,1597203,38670
+CAMP0048,Terra Product Launch 048,Community Event,Product Launch,2024-03-27,2024-04-24,Urban Runner,22803.66,849717,16824
+CAMP0049,Terra Product Launch 049,Email,Product Launch,2024-10-16,2024-11-10,All Customers,13973.52,968220,37168
+CAMP0050,Terra Acquisition 050,Community Event,Acquisition,2024-08-19,2024-09-14,Outdoor Explorer,18366.79,53296,525
+CAMP0051,Terra Acquisition 051,Email,Acquisition,2023-03-18,2023-04-25,Active Lifestyle,21612.43,861176,30982
+CAMP0052,Terra Product Launch 052,Paid Search,Product Launch,2024-09-15,2024-10-09,Outdoor Explorer,66422.6,738235,8564
+CAMP0053,Terra Product Launch 053,Community Event,Product Launch,2025-11-01,2025-11-26,Performance Athlete,15919.4,1662051,66993
+CAMP0054,Terra Retention 054,Paid Search,Retention,2025-09-08,2025-10-08,Active Lifestyle,53384.69,1354138,37702
+CAMP0055,Terra Event Promotion 055,Email,Event Promotion,2024-01-03,2024-01-25,Performance Athlete,73891.94,162617,4416
+CAMP0056,Terra Product Launch 056,Paid Search,Product Launch,2023-04-30,2023-05-19,All Customers,43791.3,1286008,27107
+CAMP0057,Terra Event Promotion 057,Paid Search,Event Promotion,2023-06-06,2023-07-13,Studio Regular,24640.96,360792,10895
+CAMP0058,Terra Acquisition 058,Paid Social,Acquisition,2024-12-11,2025-01-11,All Customers,58648.52,1831880,27942
+CAMP0059,Terra Retention 059,Influencer,Retention,2023-09-08,2023-10-11,Studio Regular,10918.19,1956963,13891
+CAMP0060,Terra Event Promotion 060,Influencer,Event Promotion,2024-09-07,2024-10-06,Outdoor Explorer,6312.33,321646,4318
+CAMP0061,Terra Acquisition 061,Paid Search,Acquisition,2025-05-10,2025-06-02,Urban Runner,7020.05,127141,1238
+CAMP0062,Terra Product Launch 062,Organic Social,Product Launch,2025-02-23,2025-04-03,All Customers,70920.48,599432,8623
+CAMP0063,Terra Product Launch 063,Paid Social,Product Launch,2024-07-14,2024-07-21,Active Lifestyle,26607.41,1827918,21494
+CAMP0064,Terra Acquisition 064,Organic Social,Acquisition,2025-08-22,2025-09-18,Studio Regular,7898.98,1008494,33479
+CAMP0065,Terra Product Launch 065,Paid Search,Product Launch,2023-03-24,2023-04-20,Performance Athlete,70609.48,365906,4886
+CAMP0066,Terra Product Launch 066,Paid Search,Product Launch,2023-07-22,2023-08-23,Urban Runner,54998.46,1746261,63799
+CAMP0067,Terra Product Launch 067,Email,Product Launch,2025-12-21,2025-12-31,Performance Athlete,59077.62,464444,3435
+CAMP0068,Terra Acquisition 068,Influencer,Acquisition,2023-01-24,2023-02-04,Studio Regular,11970.61,1424463,59578
+CAMP0069,Terra Acquisition 069,Paid Search,Acquisition,2025-01-22,2025-02-17,All Customers,41549.9,1043862,15218
+CAMP0070,Terra Product Launch 070,Paid Search,Product Launch,2025-01-09,2025-02-18,Studio Regular,32696.08,1367684,13160
+CAMP0071,Terra Retention 071,Paid Social,Retention,2025-05-12,2025-06-04,Outdoor Explorer,60568.33,375079,5895
+CAMP0072,Terra Acquisition 072,Organic Social,Acquisition,2023-11-07,2023-12-13,Active Lifestyle,5208.03,1628866,16661
+CAMP0073,Terra Retention 073,Email,Retention,2025-09-08,2025-09-24,Active Lifestyle,6638.62,1152656,24250
+CAMP0074,Terra Product Launch 074,Community Event,Product Launch,2023-04-14,2023-05-15,All Customers,69652.9,838197,15407
+CAMP0075,Terra Product Launch 075,Community Event,Product Launch,2025-09-06,2025-10-18,Performance Athlete,8968.42,1808230,11923
