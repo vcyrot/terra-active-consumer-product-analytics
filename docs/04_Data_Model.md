@@ -250,33 +250,177 @@ Future transactional and inventory tables should reference `sku_id` where the an
 
 **One row per completed or attempted customer order.**
 
-| Column             | Type      | Description                          |
-| ------------------ | --------- | ------------------------------------ |
-| `order_id`         | STRING    | Unique order identifier              |
-| `customer_id`      | STRING    | Customer placing the order           |
-| `order_timestamp`  | TIMESTAMP | Order creation time                  |
-| `sales_channel`    | STRING    | Web, mobile app or store             |
-| `order_status`     | STRING    | Completed, cancelled, refunded, etc. |
-| `currency`         | STRING    | Transaction currency                 |
-| `shipping_country` | STRING    | Delivery country                     |
-| `shipping_city`    | STRING    | Delivery city                        |
-| `shipping_fee`     | DECIMAL   | Shipping charged                     |
-| `promotion_code`   | STRING    | Promotion applied if relevant        |
+The table represents the order-level transaction or checkout attempt. Product-level quantities, prices, discounts, costs and revenue are stored separately in `order_items`.
 
-### Foreign Key
+| Column | Type | Description |
+|---|---|---|
+| `order_id` | STRING | Unique order identifier |
+| `customer_id` | STRING | Customer placing the order |
+| `order_timestamp` | TIMESTAMP | Order creation timestamp |
+| `sales_channel` | STRING | Commerce platform used: Website, iOS or Android |
+| `device` | STRING | Device used: Mobile, Desktop or Tablet |
+| `currency` | STRING | Transaction currency determined by shipping market |
+| `shipping_location_id` | STRING | Terra Active location representing the delivery market |
+| `order_status` | STRING | Terminal order status: Completed, Cancelled or Refunded |
+| `promotion_code` | STRING | Promotion code associated with the order where applicable |
+| `campaign_id` | STRING | Marketing campaign attributed to the order where available |
+| `shipping_fee` | DECIMAL | Shipping charge applied to the order; populated after basket generation |
 
-`customer_id → customers.customer_id`
+### Foreign Keys
 
-### Important modelling decision
+- `orders.customer_id` → `customers.customer_id`
+- `orders.shipping_location_id` → `locations.location_id`
+- `orders.campaign_id` → `campaigns.campaign_id`
 
-Order totals should preferably be **calculated from `order_items`** rather than independently generated.
+`campaign_id` is nullable because order-level campaign attribution is intentionally incomplete.
+
+### Shipping Geography
+
+Customer home location and order shipping location are separate concepts:
+
+```text
+customers.location_id
+        ↓
+customer home market
+
+orders.shipping_location_id
+        ↓
+delivery market for a specific order
+```
+
+Orders may be shipped to the customer's home location or another Terra Active location within the same country.
+
+City and country are not duplicated directly on `orders`. They are recovered by joining:
+
+```text
+orders.shipping_location_id
+        ↓
+locations.location_id
+        ↓
+city / country
+```
+
+This keeps `locations` as the geographic master dimension and avoids inconsistent location values across transactional, inventory, weather and community datasets.
+
+### Currency
+
+`currency` remains stored directly on the order because it is a transaction-level property.
+
+The generated currency is consistent with the shipping market:
+
+```text
+United Kingdom → GBP
+Switzerland    → CHF
+France         → EUR
+Germany        → EUR
+Netherlands    → EUR
+Spain          → EUR
+Italy          → EUR
+```
+
+### Order Status Semantics
+
+`order_status` represents the terminal order-level state.
+
+Possible values:
+
+- `Completed` — successfully fulfilled and not fully refunded
+- `Cancelled` — order created but cancelled before fulfilment
+- `Refunded` — fulfilled order that was subsequently fully refunded
+
+Partial product returns are not represented by setting the whole order to `Refunded`. They are modelled separately in `returns`.
+
+This distinction prevents order-level status from duplicating item-level return behaviour.
+
+### Promotion Attribution
+
+`promotion_code` records the promotional mechanism associated with the order.
+
+Current synthetic promotion codes include:
+
+- `WELCOME10`
+- `CLUB15`
+- `SEASON20`
+- `EVENT10`
+- `FREESHIP`
+
+Promotion attribution is nullable because most orders do not use a promotion.
+
+`WELCOME10` is restricted to a customer's first order.
+
+Cancelled orders currently do not retain a promotion code in the synthetic generation logic.
+
+The existence of a promotion code does not independently determine order revenue. Monetary discount amounts are stored at line level in `order_items`.
+
+### Campaign Attribution
+
+`campaign_id` represents direct order-level marketing attribution where a campaign can reasonably be linked to the order.
+
+Campaign attribution is intentionally incomplete.
+
+An attributed campaign must:
+
+- Exist in `campaigns`
+- Be active on the order date
+- Match the customer's target segment
+- Respect marketing consent for Email campaigns
+
+A customer's acquisition campaign is not automatically reused on later orders.
+
+If the acquisition campaign is still eligible when the customer's first order occurs, it has an increased probability of receiving first-order attribution.
+
+This allows the project to distinguish:
+
+```text
+customer acquisition attribution
+            ≠
+order conversion attribution
+```
+
+and supports downstream campaign performance analysis without assuming perfect marketing attribution.
+
+### Shipping Fee
+
+`shipping_fee` is intentionally populated only after `order_items` has been generated.
+
+Shipping charges may depend on:
+
+- Basket value
+- Shipping market
+- Free-shipping thresholds
+- `FREESHIP` promotion usage
+
+Generating shipping fees before knowing basket value would create avoidable inconsistencies.
+
+### Important Modelling Decision
+
+Order revenue, cost and margin should be **calculated from `order_items` rather than independently generated on `orders`.**
 
 This avoids inconsistencies between:
 
-* item-level sales
-* order-level sales
-* discounts
-* refunds
+- Item-level sales
+- Order-level sales
+- Discounts
+- Costs
+- Refunds
+
+For example:
+
+```text
+gross_sales
+    = Σ(unit_list_price × quantity)
+
+discount_value
+    = Σ(discount_amount × quantity)
+
+net_product_revenue
+    = Σ(unit_selling_price × quantity)
+
+COGS
+    = Σ(unit_cost × quantity)
+```
+
+Shipping revenue can subsequently be incorporated using `orders.shipping_fee`.
 
 ---
 
@@ -286,47 +430,93 @@ This avoids inconsistencies between:
 
 **One row per SKU contained in an order.**
 
-Each order item represents the exact sellable product variant purchased by the customer.
+If multiple units of the same SKU are purchased in the same order, they are represented through `quantity` rather than duplicate rows.
+
+This is one of the most important transactional tables in the project.
 
 | Column | Type | Description |
 |---|---|---|
 | `order_item_id` | STRING | Unique order-line identifier |
 | `order_id` | STRING | Parent order |
-| `sku_id` | STRING | Purchased colour-size SKU |
-| `quantity` | INTEGER | Units purchased |
-| `unit_list_price` | DECIMAL | Standard price at purchase |
-| `discount_amount` | DECIMAL | Discount applied to the line |
-| `unit_selling_price` | DECIMAL | Actual price paid per unit |
-| `unit_cost` | DECIMAL | Cost of goods sold per unit |
+| `sku_id` | STRING | Exact colour-size product variant contained in the order |
+| `quantity` | INTEGER | Number of units of the SKU |
+| `unit_list_price` | DECIMAL | Standard retail price per unit at purchase |
+| `discount_amount` | DECIMAL | Discount applied per unit |
+| `unit_selling_price` | DECIMAL | Actual selling price per unit after discount |
+| `unit_cost` | DECIMAL | Cost of goods per unit |
 
 ### Foreign Keys
 
-- `order_id` → `orders.order_id`
-- `sku_id` → `product_variants.sku_id`
+- `order_items.order_id` → `orders.order_id`
+- `order_items.sku_id` → `product_variants.sku_id`
 
-### Derived Product Context
+Product-style information is recovered through:
 
-Product-level information such as category, subcategory, colour, size and technical positioning can be obtained through:
+```text
+order_items.sku_id
+        ↓
+product_variants.sku_id
+        ↓
+product_variants.product_id
+        ↓
+products.product_id
+```
 
-`order_items.sku_id`
-→ `product_variants.product_id`
-→ `products.product_id`
+This preserves the correct commercial grain: customers buy an exact colour-size SKU rather than an abstract product style.
+
+### Pricing Relationship
+
+For every order line:
+
+```text
+unit_selling_price
+    =
+unit_list_price
+    -
+discount_amount
+```
+
+`discount_amount` represents the monetary discount applied to one unit.
+
+The order-level `promotion_code` may influence line-level discount generation, but the monetary effect remains stored at line level.
 
 ### Derived Metrics
 
-From this table we can calculate:
+From `order_items`, the project can calculate:
+
+```text
+line_gross_sales
+    = unit_list_price × quantity
+
+line_discount_value
+    = discount_amount × quantity
+
+line_net_revenue
+    = unit_selling_price × quantity
+
+line_COGS
+    = unit_cost × quantity
+
+line_gross_profit
+    = line_net_revenue - line_COGS
+```
+
+Aggregating these metrics supports:
 
 - Gross sales
-- Net revenue
+- Net product revenue
+- Discount value
 - COGS
 - Gross profit
 - Gross margin
 - Units per transaction
-- Product/category revenue
+- Average order value
+- Product and category revenue
+- SKU-level sales
+- Colour and size demand
 - Accessory attachment
 - Basket composition
-- Size-level demand
-- Colour-level demand
+- Promotion effectiveness
 
 ---
 
@@ -336,22 +526,35 @@ From this table we can calculate:
 
 **One row per returned order item or return event.**
 
+Returns reference the exact transactional line that was originally purchased.
+
 | Column | Type | Description |
 |---|---|---|
 | `return_id` | STRING | Unique return identifier |
 | `order_item_id` | STRING | Original purchased order line |
 | `order_id` | STRING | Original order |
-| `sku_id` | STRING | Returned colour-size SKU |
-| `return_date` | DATE | Date returned |
+| `sku_id` | STRING | Exact returned product variant |
+| `return_date` | DATE | Date the return was recorded |
 | `return_reason` | STRING | Reason for return |
-| `refund_amount` | DECIMAL | Amount refunded |
+| `return_quantity` | INTEGER | Number of units returned |
+| `refund_amount` | DECIMAL | Monetary amount refunded |
 | `return_condition` | STRING | Resellable, damaged, etc. |
 
 ### Foreign Keys
 
-- `order_item_id` → `order_items.order_item_id`
-- `order_id` → `orders.order_id`
-- `sku_id` → `product_variants.sku_id`
+- `returns.order_item_id` → `order_items.order_item_id`
+- `returns.order_id` → `orders.order_id`
+- `returns.sku_id` → `product_variants.sku_id`
+
+### Relationship with Order Status
+
+The `returns` table captures item-level return activity.
+
+A `Completed` order may therefore contain one or more partial returns while remaining `Completed` at order level.
+
+An order with `order_status = 'Refunded'` represents a fully refunded order and should ultimately have return records consistent with that terminal state.
+
+This relationship should be enforced during returns generation and validation to avoid contradictory refund information.
 
 ### Example Return Reasons
 
@@ -369,12 +572,13 @@ Supports:
 
 - Unit return rate
 - Return value rate
-- SKU-level return analysis
-- Size-related returns
-- Colour-related returns
-- Product-level return analysis through the parent style
+- Product and SKU return analysis
+- Size-level return analysis
+- Colour-level return analysis
 - Customer return behaviour
 - Impact of discounting on returns
+- Product attribute analysis
+- Net revenue after returns
 
 ---
 
